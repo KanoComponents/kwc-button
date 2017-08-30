@@ -1,5 +1,4 @@
 <link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../iron-a11y-keys/iron-a11y-keys.html">
 <link rel="import" href="../web-components/kano-style/kano-style.html">
 <link rel="import" href="../web-components/kano-icons/kano-icons.html">
 
@@ -273,13 +272,8 @@ Custom property | Description | Default
             width: 16px;
         }
     </style>
-    <iron-a11y-keys id="keys"
-                    keys="space enter"
-                    target="[[_target]]"
-                    on-keys-pressed="_keysPressed">
-                    </iron-a11y-keys>
     <template is="dom-if" if="[[_displayIcon]]">
-        <iron-icon icon="kano-icons:[[icon]]"></iron-icon>
+        <iron-icon icon="kano-icons:[[iconId]]"></iron-icon>
     </template>
     <slot id="content"></slot>
   </template>
@@ -298,10 +292,11 @@ Custom property | Description | Default
             },
             _displayIcon: {
                 type: Boolean,
-                computed: '_iconProvided(icon)'
+                computed: '_iconProvided(iconId)'
             },
             /**
-             * Boolean to indicate whether the button ghosted (semi-transparent)
+             * Boolean to indicate whether the button
+             * is ghosted (semi-transparent)
              */
             ghost: {
                 type: Boolean,
@@ -312,7 +307,7 @@ Custom property | Description | Default
              * String to indicate which button (if any) the button
              * should display
              */
-            icon: {
+            iconId: {
                 type: String
             },
             /**
@@ -332,12 +327,6 @@ Custom property | Description | Default
                 value: false,
                 reflectToAttribute: true
             },
-            _target: {
-                type: Object,
-                value: function () {
-                    return this;
-                }
-            },
             /**
              * Boolean to indicate whether the button should be
              * completely transparent
@@ -355,6 +344,7 @@ Custom property | Description | Default
              *    - `tertiary`
              *    - `warning`
              *    - `white`
+             *
              * Named `type` to avoid clashes with the HTML `role` attribute
              */
             type: {
@@ -363,15 +353,8 @@ Custom property | Description | Default
                 reflectToAttribute: true
             }
         },
-        hostAttributes: {
-            role: 'button',
-            tabindex: '0'
-        },
-        _iconProvided (icon) {
-            return icon !== undefined && icon !== null;
-        },
-        _keysPressed (update) {
-            this.fire('click');
+        _iconProvided (iconId) {
+            return iconId !== undefined && iconId !== null;
         }
     });
   </script>

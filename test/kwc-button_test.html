@@ -8,7 +8,6 @@
 
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
     <script src="../../web-component-tester/browser.js"></script>
-    <script src="../../iron-test-helpers/mock-interactions.js"></script>
 
     <link rel="import" href="../kwc-button.html">
   </head>
@@ -52,7 +51,7 @@
             });
 
             test('should not have an icon by default', function() {
-                assert.equal(element.icon, undefined);
+                assert.equal(element.iconId, undefined);
             });
 
             test('should be rounded by default', function() {
@@ -62,20 +61,6 @@
             test('can be disabled imperatively', function() {
                 element.disabled = true;
                 expect(element.hasAttribute('disabled')).to.be.eql(true);
-            });
-
-            test('can be triggered with the space key', function(done) {
-                element.addEventListener('click', function() {
-                    done();
-                });
-                MockInteractions.pressSpace(element);
-            });
-
-            test('can be triggered with the enter key', function(done) {
-                element.addEventListener('click', function() {
-                    done();
-                });
-                MockInteractions.pressEnter(element);
             });
         });
     </script>
