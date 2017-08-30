@@ -1,0 +1,21 @@
+{
+  "name": "kwc-button",
+  "description": "An atomic button element with Kano styling",
+  "main": "kwc-button.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.9.0",
+    "iron-a11y-keys": "^2.0.0",
+    "web-components": "git@github.com:KanoComputing/web-components.git#master"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "iron-demo-helpers": "^2.0.0",
+    "web-component-tester": "Polymer/web-component-tester#^6.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0",
+    "iron-test-helpers": "^2.0.0"
+  },
+  "resolutions": {
+    "iron-demo-helpers": "^1.0.0",
+    "iron-location": "^0.8.0"
+  }
+}

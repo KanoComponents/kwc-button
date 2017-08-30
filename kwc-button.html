@@ -1,0 +1,378 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-a11y-keys/iron-a11y-keys.html">
+<link rel="import" href="../web-components/kano-style/kano-style.html">
+<link rel="import" href="../web-components/kano-icons/kano-icons.html">
+
+<!--
+`kwc-button`
+An atomic button element with Kano styling
+
+Custom property | Description | Default
+----------------|-------------|----------
+`--kwc-button-font` | Font for the element | `--font-body`
+
+@group Kano Web Components
+@demo demo/index.html
+-->
+
+<dom-module id="kwc-button">
+  <template>
+    <style>
+        /** Button default */
+        :host {
+            border: none;
+            border-radius: 40px;
+            color: white;
+            cursor: pointer;
+            font-family: var(--kwc-button-font, --font-body);
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 56px;
+            outline: none;
+            overflow: hidden;
+            padding: 13px 22px 11px 22px;
+            text-transform: uppercase;
+            transition-property: background-color, border-color, color;
+            transition-duration: 0.3s;
+            transition-timing-function: ease;
+            white-space: nowrap;
+        }
+        /** Square button */
+        :host([square]) {
+            border-radius: 5px;
+        }
+        /** Default/filled button */
+        :host([type="primary"]) {
+            background-color: var(--color-kano-orange);
+        }
+        :host([type="primary"]):hover,
+        :host([type="primary"]):focus {
+            background-color: var(--color-pumpkin);
+        }
+        :host([type="secondary"]) {
+            background-color: var(--color-grassland);
+        }
+        :host([type="secondary"]):hover,
+        :host([type="secondary"]):focus {
+            background-color: var(--color-apple);
+        }
+        :host([type="tertiary"]) {
+            background-color: var(--color-grey);
+        }
+        :host([type="tertiary"]):hover,
+        :host([type="tertiary"]):focus {
+            background-color: var(--color-stone);
+        }
+        :host([type="warning"]) {
+            background-color: var(--color-cinnabar);
+        }
+        :host([type="warning"]):hover,
+        :host([type="warning"]):focus {
+            background-color: var(--color-flamingo);
+        }
+        :host([type="white"]) {
+            background-color: rgba(255, 255, 255, 1);
+            color: var(--color-abbey);
+        }
+        :host([type="white"]):hover,
+        :host([type="white"]):focus {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: var(--color-abbey);
+        }
+        /** Outline button */
+        :host([outline]),
+        :host([outline]):hover,
+        :host([outline]):focus {
+            background-color: transparent;
+            border-style: solid;
+            border-width: 1px;
+        }
+        :host([outline][type="primary"]) {
+            border-color: var(--color-kano-orange);
+            color: var(--color-kano-orange);
+        }
+        :host([outline][type="primary"]):hover,
+        :host([outline][type="primary"]):focus {
+            border-color: var(--color-pumpkin);
+            color: var(--color-pumpkin);
+        }
+        :host([outline][type="secondary"]) {
+            border-color: var(--color-grassland);
+            color: var(--color-grassland);
+        }
+        :host([outline][type="secondary"]):hover,
+        :host([outline][type="secondary"]):focus {
+            border-color: var(--color-apple);
+            color: var(--color-apple);
+        }
+        :host([outline][type="tertiary"]) {
+            border-color: var(--color-grey);
+            color: var(--color-grey);
+        }
+        :host([outline][type="tertiary"]):hover,
+        :host([outline][type="tertiary"]):focus {
+            border-color: var(--color-stone);
+            color: var(--color-stone);
+        }
+        :host([outline][type="warning"]) {
+            border-color: var(--color-cinnabar);
+            color: var(--color-cinnabar);
+        }
+        :host([outline][type="warning"]):hover,
+        :host([outline][type="warning"]):focus {
+            border-color: var(--color-flamingo);
+            color: var(--color-flamingo);
+        }
+        :host([outline][type="white"]) {
+            border-color: rgba(255, 255, 255, 1);
+            color: rgba(255, 255, 255, 1);
+        }
+        :host([outline][type="white"]):hover,
+        :host([outline][type="white"]):focus {
+            border-color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.8);
+        }
+        /** Ghost button */
+        :host([ghost][type="primary"]):not([outline]) {
+            background-color: rgba(255, 105, 0, 0.4);
+        }
+        :host([ghost][type="primary"]):not([outline]):hover,
+        :host([ghost][type="primary"]):not([outline]):focus {
+            background-color: rgba(255, 105, 0, 0.8);
+        }
+        :host([ghost][type="primary"][outline]) {
+            border-color: rgba(255, 105, 0, 0.4);
+            color: rgba(255, 105, 0, 0.4);
+        }
+        :host([ghost][type="primary"][outline]):hover,
+        :host([ghost][type="primary"][outline]):focus {
+            border-color: rgba(255, 105, 0, 0.8);
+            color: rgba(255, 105, 0, 0.8);
+        }
+        :host([ghost][type="secondary"]):not([outline]) {
+            background-color: rgba(136, 196, 64, 0.4);
+        }
+        :host([ghost][type="secondary"]):not([outline]):hover,
+        :host([ghost][type="secondary"]):not([outline]):focus {
+            background-color: rgba(136, 196, 64, 0.8);
+        }
+        :host([ghost][type="secondary"][outline]) {
+            border-color: rgba(136, 196, 64, 0.4);
+            color: rgba(136, 196, 64, 0.4);
+        }
+        :host([ghost][type="secondary"][outline]):hover,
+        :host([ghost][type="secondary"][outline]):focus {
+            border-color: rgba(136, 196, 64, 0.8);
+            color: rgba(136, 196, 64, 0.8);
+        }
+        :host([ghost][type="tertiary"]):not([outline]) {
+            background-color: rgba(159, 164, 168, 0.4);
+        }
+        :host([ghost][type="tertiary"]):not([outline]):hover,
+        :host([ghost][type="tertiary"]):not([outline]):focus {
+            background-color: rgba(159, 164, 168, 0.8);
+        }
+        :host([ghost][type="tertiary"][outline]) {
+            border-color: rgba(159, 164, 168, 0.4);
+            color: rgba(159, 164, 168, 0.4);
+        }
+        :host([ghost][type="tertiary"][outline]):hover,
+        :host([ghost][type="tertiary"][outline]):focus {
+            border-color: rgba(159, 164, 168, 0.8);
+            color: rgba(159, 164, 168, 0.8);
+        }
+        :host([ghost][type="warning"]):not([outline]) {
+            background-color: rgba(246, 54, 54, 0.4);
+        }
+        :host([ghost][type="warning"]):not([outline]):hover,
+        :host([ghost][type="warning"]):not([outline]):focus {
+            background-color: rgba(246, 54, 54, 0.8);
+        }
+        :host([ghost][type="warning"][outline]) {
+            border-color: rgba(246, 54, 54, 0.4);
+            color: rgba(246, 54, 54, 0.4);
+        }
+        :host([ghost][type="warning"][outline]):hover,
+        :host([ghost][type="warning"][outline]):focus {
+            border-color: rgba(246, 54, 54, 0.8);
+            color: rgba(246, 54, 54, 0.8);
+        }
+        :host([ghost][type="white"]):not([outline]) {
+            background-color: rgba(255, 255, 255, 0.4);
+            color: var(--color-abbey);
+        }
+        :host([ghost][type="white"]):not([outline]):hover,
+        :host([ghost][type="white"]):not([outline]):focus {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: var(--color-grey);
+        }
+        :host([ghost][type="white"][outline]) {
+            border-color: rgba(255, 255, 255, 0.4);
+            color: rgba(255, 255, 255, 0.4);
+        }
+        :host([ghost][type="white"][outline]):hover,
+        :host([ghost][type="white"][outline]):focus {
+            border-color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.8);
+        }
+        /** Transparent button */
+        :host([transparent]),
+        :host([transparent]):hover {
+            background: transparent;
+        }
+        :host([transparent][outline]),
+        :host([transparent][outline]):hover {
+            border-color: transparent;
+        }
+        :host([transparent][type="primary"]) {
+            color: var(--color-kano-orange);
+        }
+        :host([transparent][type="primary"]):hover,
+        :host([transparent][type="primary"]):focus {
+            color: var(--color-pumpkin);
+        }
+        :host([transparent][type="secondary"]) {
+            color: var(--color-grassland);
+        }
+        :host([transparent][type="secondary"]):hover,
+        :host([transparent][type="secondary"]):focus {
+            color: var(--color-apple);
+        }
+        :host([transparent][type="tertiary"]) {
+            color: var(--color-grey);
+        }
+        :host([transparent][type="tertiary"]):hover,
+        :host([transparent][type="tertiary"]):focus {
+            color: var(--color-stone);
+        }
+        :host([transparent][type="warning"]) {
+            color: var(--color-cinnabar);
+        }
+        :host([transparent][type="warning"]):hover,
+        :host([transparent][type="warning"]):focus {
+            color: var(--color-flamingo);
+        }
+        :host([transparent][type="white"]) {
+            color: rgba(255, 255, 255, 1);
+        }
+        :host([transparent][type="white"]):hover,
+        :host([transparent][type="white"]):focus {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        /** Disabled button */
+        :host([disabled]),
+        :host([disabled]):hover,
+        :host([disabled]):focus {
+            background-color: var(--color-grey);
+            cursor: default;
+        }
+        :host iron-icon {
+            display: inline-block;
+            height: 16px;
+            vertical-align: -5%;
+            width: 16px;
+        }
+    </style>
+    <iron-a11y-keys id="keys"
+                    keys="space enter"
+                    target="[[_target]]"
+                    on-keys-pressed="_keysPressed">
+                    </iron-a11y-keys>
+    <template is="dom-if" if="[[_displayIcon]]">
+        <iron-icon icon="kano-icons:[[icon]]"></iron-icon>
+    </template>
+    <slot id="content"></slot>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'kwc-button',
+      properties: {
+            /**
+             * Boolean to indicate whether the button is `active` or `disabled`
+             */
+            disabled: {
+                type: Boolean,
+                value: false,
+                reflectToAttribute: true
+            },
+            _displayIcon: {
+                type: Boolean,
+                computed: '_iconProvided(icon)'
+            },
+            /**
+             * Boolean to indicate whether the button ghosted (semi-transparent)
+             */
+            ghost: {
+                type: Boolean,
+                value: false,
+                reflectToAttribute: true
+            },
+            /**
+             * String to indicate which button (if any) the button
+             * should display
+             */
+            icon: {
+                type: String
+            },
+            /**
+             * Boolean to indicate whether the button should only have
+             * an outline
+             */
+            outline: {
+                type: Boolean,
+                value: false,
+                reflectToAttribute: true
+            },
+            /**
+             * Boolean to indicate whether the button should be square
+             */
+            square: {
+                type: Boolean,
+                value: false,
+                reflectToAttribute: true
+            },
+            _target: {
+                type: Object,
+                value: function () {
+                    return this;
+                }
+            },
+            /**
+             * Boolean to indicate whether the button should be
+             * completely transparent
+             */
+            transparent: {
+                type: Boolean,
+                value: false,
+                reflectToAttribute: true
+            },
+            /**
+             * String to indicate the role played by the button, and the styling
+             * it should use:
+             *    - `primary`
+             *    - `secondary`
+             *    - `tertiary`
+             *    - `warning`
+             *    - `white`
+             * Named `type` to avoid clashes with the HTML `role` attribute
+             */
+            type: {
+                type: String,
+                value: 'primary',
+                reflectToAttribute: true
+            }
+        },
+        hostAttributes: {
+            role: 'button',
+            tabindex: '0'
+        },
+        _iconProvided (icon) {
+            return icon !== undefined && icon !== null;
+        },
+        _keysPressed (update) {
+            this.fire('click');
+        }
+    });
+  </script>
+</dom-module>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+        <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+        <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+        <link rel="import" href="../kwc-button.html">
+        <style is="custom-style" include="demo-pages-shared-styles">
+            h2 {
+                padding-bottom: 20px;
+            }
+            kwc-button {
+                margin-right: 20px;
+            }
+            :root {
+                --demo-snippet-demo: {
+                    background-color: rgba(0, 0, 0, 0.1);
+                }
+            }
+            .dark {
+                background-color: grey;
+            }
+        </style>
+    </head>
+    <body unresolved>
+        <div class="vertical-section-container">
+            <demo-snippet>
+                <h2>Primary (default)</h2>
+                <template>
+                    <kwc-button>Default</kwc-button>
+                    <kwc-button icon="medals">Icon</kwc-button>
+                    <kwc-button outline>Outline</kwc-button>
+                </template>
+            </demo-snippet>
+            <demo-snippet>
+                <h2>Secondary</h2>
+                <template>
+                    <kwc-button type="secondary">Default</kwc-button>
+                    <kwc-button type="secondary" icon="tick">Icon</kwc-button>
+                    <kwc-button type="secondary" outline>Outline</kwc-button>
+                </template>
+            </demo-snippet>
+            <demo-snippet>
+                <h2>Tertiary</h2>
+                <template>
+                    <kwc-button type="tertiary">Default</kwc-button>
+                    <kwc-button type="tertiary" icon="tick">Icon</kwc-button>
+                    <kwc-button type="tertiary" outline>Outline</kwc-button>
+                </template>
+            </demo-snippet>
+            <demo-snippet>
+                <h2>Warning</h2>
+                <template>
+                    <kwc-button type="warning">Default</kwc-button>
+                    <kwc-button type="warning" icon="warning">Icon</kwc-button>
+                    <kwc-button type="warning" outline>Outline</kwc-button>
+                </template>
+            </demo-snippet>
+            <demo-snippet>
+                <h2>White</h2>
+                    <template>
+                        <kwc-button type="white">Default</kwc-button>
+                        <kwc-button type="white" icon="warning">Icon</kwc-button>
+                        <kwc-button type="white" outline>Outline</kwc-button>
+                    </template>
+            </demo-snippet>
+            <demo-snippet>
+                <h2>Ghost</h2>
+                <template>
+                    <kwc-button type="primary"
+                                ghost>Default</kwc-button>
+                    <kwc-button type="primary"
+                                ghost
+                                icon="tick">Icon</kwc-button>
+                    <kwc-button type="primary"
+                                ghost
+                                outline>Outline</kwc-button>
+                    <br>
+                    <kwc-button type="secondary"
+                                ghost>Default</kwc-button>
+                    <kwc-button type="secondary"
+                                ghost
+                                icon="tick">Icon</kwc-button>
+                    <kwc-button type="secondary"
+                                ghost
+                                outline>Outline</kwc-button>
+                    <br>
+                    <kwc-button type="tertiary"
+                                ghost>Default</kwc-button>
+                    <kwc-button type="tertiary"
+                                ghost
+                                icon="tick">Icon</kwc-button>
+                    <kwc-button type="tertiary"
+                                ghost
+                                outline>Outline</kwc-button>
+                    <br>
+                    <kwc-button type="warning"
+                                ghost>Default</kwc-button>
+                    <kwc-button type="warning"
+                                ghost
+                                icon="tick">Icon</kwc-button>
+                    <kwc-button type="warning"
+                                ghost
+                                outline>Outline</kwc-button>
+                    <br>
+                    <kwc-button type="white"
+                                ghost>Default</kwc-button>
+                    <kwc-button type="white"
+                                ghost
+                                icon="tick">Icon</kwc-button>
+                    <kwc-button type="white"
+                                ghost
+                                outline>Outline</kwc-button>
+                </template>
+            </demo-snippet>
+            <demo-snippet>
+                <h2>Transparent</h2>
+                <template>
+                    <kwc-button type="primary"
+                                transparent>Default</kwc-button>
+                    <kwc-button type="primary"
+                                transparent
+                                icon="tick">Icon</kwc-button>
+                    <kwc-button type="primary"
+                                transparent
+                                outline>Outline</kwc-button>
+                    <br>
+                    <kwc-button type="secondary"
+                                transparent>Default</kwc-button>
+                    <kwc-button type="secondary"
+                                transparent
+                                icon="tick">Icon</kwc-button>
+                    <kwc-button type="secondary"
+                                transparent
+                                outline>Outline</kwc-button>
+                    <br>
+                    <kwc-button type="tertiary"
+                                transparent>Default</kwc-button>
+                    <kwc-button type="tertiary"
+                                transparent
+                                icon="tick">Icon</kwc-button>
+                    <kwc-button type="tertiary"
+                                transparent
+                                outline>Outline</kwc-button>
+                    <br>
+                    <kwc-button type="warning"
+                                transparent>Default</kwc-button>
+                    <kwc-button type="warning"
+                                transparent
+                                icon="tick">Icon</kwc-button>
+                    <kwc-button type="warning"
+                                transparent
+                                outline>Outline</kwc-button>
+                    <br>
+                    <kwc-button type="white"
+                                transparent>Default</kwc-button>
+                    <kwc-button type="white"
+                                transparent
+                                icon="tick">Icon</kwc-button>
+                    <kwc-button type="white"
+                                transparent
+                                outline>Outline</kwc-button>
+                </template>
+            </demo-snippet>
+            <demo-snippet>
+                <h2>Disabled</h2>
+                <template>
+                    <kwc-button disabled>I don't work</kwc-button>
+                </template>
+            </demo-snippet>
+            <demo-snippet>
+                <h2>Squared Button</h2>
+                <template>
+                    <kwc-button square>No rounded corners for me</kwc-button>
+                </template>
+            </demo-snippet>
+        </div>
+    </body>
+</html>

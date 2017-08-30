@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>kwc-button test</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+    <script src="../../iron-test-helpers/mock-interactions.js"></script>
+
+    <link rel="import" href="../kwc-button.html">
+  </head>
+  <body>
+    <test-fixture id="basic">
+      <template>
+        <kwc-button>Default button</kwc-button>
+      </template>
+    </test-fixture>
+
+    <script>
+        suite('Default kwc-button', function() {
+            var element;
+
+             setup(function () {
+                element = fixture('basic');
+             });
+
+            test('instantiating the element works', function() {
+                assert.equal(element.is, 'kwc-button');
+            });
+
+            test('should be enabled by default', function() {
+                assert.equal(element.disabled, false);
+            });
+
+            test('should be primary by default', function() {
+                assert.equal(element.type, 'primary');
+            });
+
+            test('should be not have an outline by default', function() {
+                assert.equal(element.outline, false);
+            });
+
+            test('should not be ghosted by default', function() {
+                assert.equal(element.ghost, false);
+            });
+
+            test('should be opaque by default', function() {
+                assert.equal(element.transparent, false);
+            });
+
+            test('should not have an icon by default', function() {
+                assert.equal(element.icon, undefined);
+            });
+
+            test('should be rounded by default', function() {
+                assert.equal(element.square, false);
+            });
+
+            test('can be disabled imperatively', function() {
+                element.disabled = true;
+                expect(element.hasAttribute('disabled')).to.be.eql(true);
+            });
+
+            test('can be triggered with the space key', function(done) {
+                element.addEventListener('click', function() {
+                    done();
+                });
+                MockInteractions.pressSpace(element);
+            });
+
+            test('can be triggered with the enter key', function(done) {
+                element.addEventListener('click', function() {
+                    done();
+                });
+                MockInteractions.pressEnter(element);
+            });
+        });
+    </script>
+  </body>
+</html>
