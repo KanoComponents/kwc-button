@@ -272,9 +272,11 @@ Custom property | Description | Default
             width: 16px;
         }
     </style>
-    <template is="dom-if" if="[[_displayIcon]]">
-        <iron-icon icon="kano-icons:[[iconId]]"></iron-icon>
-    </template>
+    <dom-if>
+        <template is="dom-if" if="[[_displayIcon]]">
+            <iron-icon icon="kano-icons:[[iconId]]"></iron-icon>
+        </template>
+    </dom-if>
     <slot id="content"></slot>
   </template>
 
