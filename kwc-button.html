@@ -23,13 +23,16 @@ Custom property | Description | Default
             border-radius: 40px;
             color: white;
             cursor: pointer;
+            display: inline-block;
             font-family: var(--kwc-button-font, --font-body);
             font-size: 16px;
             font-weight: bold;
+            height: 56px;
             line-height: 56px;
             outline: none;
             overflow: hidden;
-            padding: 13px 22px 11px 22px;
+            padding: 0 22px;
+            text-align: center;
             text-transform: uppercase;
             transition-property: background-color, border-color, color;
             transition-duration: 0.3s;
@@ -77,6 +80,13 @@ Custom property | Description | Default
         :host([type="white"]):focus {
             background-color: rgba(255, 255, 255, 0.8);
             color: var(--color-abbey);
+        }
+        :host([type="black"]) {
+            background-color: var(--color-black);
+        }
+        :host([type="black"]):hover,
+        :host([type="black"]):focus {
+            background-color: var(--color-abbey);
         }
         /** Outline button */
         :host([outline]),
@@ -130,6 +140,15 @@ Custom property | Description | Default
         :host([outline][type="white"]):focus {
             border-color: rgba(255, 255, 255, 0.8);
             color: rgba(255, 255, 255, 0.8);
+        }
+        :host([outline][type="black"]) {
+            border-color: var(--color-black);
+            color: var(--color-black);
+        }
+        :host([outline][type="black"]):hover,
+        :host([outline][type="black"]):focus {
+            border-color: var(--color-abbey);
+            color: var(--color-abbey);
         }
         /** Ghost button */
         :host([ghost][type="primary"]):not([outline]) {
@@ -214,6 +233,22 @@ Custom property | Description | Default
             border-color: rgba(255, 255, 255, 0.8);
             color: rgba(255, 255, 255, 0.8);
         }
+        :host([ghost][type="black"]):not([outline]) {
+            background-color: rgba(41, 47, 53, 0.4);
+        }
+        :host([ghost][type="black"]):not([outline]):hover,
+        :host([ghost][type="black"]):not([outline]):focus {
+            background-color: rgba(41, 47, 53, 0.8);
+        }
+        :host([ghost][type="black"][outline]) {
+            border-color: rgba(41, 47, 53, 0.4);
+            color: rgba(41, 47, 53, 0.4);
+        }
+        :host([ghost][type="black"][outline]):hover,
+        :host([ghost][type="black"][outline]):focus {
+            border-color: rgba(41, 47, 53, 0.8);
+            color: rgba(41, 47, 53, 0.8);
+        }
         /** Transparent button */
         :host([transparent]),
         :host([transparent]):hover {
@@ -257,6 +292,13 @@ Custom property | Description | Default
         :host([transparent][type="white"]):hover,
         :host([transparent][type="white"]):focus {
             color: rgba(255, 255, 255, 0.8);
+        }
+        :host([transparent][type="black"]) {
+            color: var(--color-black)
+        }
+        :host([transparent][type="black"]):hover,
+        :host([transparent][type="black"]):focus {
+            color: var(--color-abbey);
         }
         /** Disabled button */
         :host([disabled]),
