@@ -1,5 +1,5 @@
 <link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../web-components/kano-style/kano-style.html">
+<link rel="import" href="../kwc-style/kwc-style.html">
 <link rel="import" href="../web-components/kano-icons/kano-icons.html">
 
 <!--
@@ -25,10 +25,7 @@ Custom property | Description | Default
             cursor: pointer;
             display: inline-block;
             font-family: var(--kwc-button-font, var(--font-body));
-            font-size: 16px;
             font-weight: bold;
-            height: 56px;
-            line-height: 56px;
             outline: none;
             overflow: hidden;
             padding: 0 22px;
@@ -39,59 +36,70 @@ Custom property | Description | Default
             transition-timing-function: ease;
             white-space: nowrap;
         }
+        /** Sizes */
+        :host([size="small"]) {
+            font-size: 12px;
+            height: 32px;
+            line-height: 32px;
+        }
+        :host([size="medium"]) {
+            font-size: 14px;
+            height: 40px;
+            line-height: 40px;
+        }
         /** Square button */
         :host([square]) {
-            border-radius: 5px;
+            border-radius: 3px;
         }
         /** Default/filled button */
         :host([type="primary"]) {
             background-color: var(--color-kano-orange);
         }
-        :host([type="primary"]):hover,
-        :host([type="primary"]):focus {
-            background-color: var(--color-pumpkin);
+        :host([type="primary"]:hover),
+        :host([type="primary"]:focus) {
+            background-color: var(--color-flame);
         }
         :host([type="secondary"]) {
             background-color: var(--color-grassland);
         }
-        :host([type="secondary"]):hover,
-        :host([type="secondary"]):focus {
+        :host([type="secondary"]:hover),
+        :host([type="secondary"]:focus) {
             background-color: var(--color-apple);
         }
         :host([type="tertiary"]) {
             background-color: var(--color-grey);
         }
-        :host([type="tertiary"]):hover,
-        :host([type="tertiary"]):focus {
-            background-color: var(--color-stone);
+        :host([type="tertiary"]:hover),
+        :host([type="tertiary"]:focus) {
+            background-color: var(--color-chateau);
         }
         :host([type="warning"]) {
             background-color: var(--color-cinnabar);
         }
-        :host([type="warning"]):hover,
-        :host([type="warning"]):focus {
+        :host([type="warning"]:hover),
+        :host([type="warning"]:focus) {
             background-color: var(--color-flamingo);
         }
         :host([type="white"]) {
             background-color: rgba(255, 255, 255, 1);
             color: var(--color-abbey);
         }
-        :host([type="white"]):hover,
-        :host([type="white"]):focus {
+        :host([type="white"]:hover),
+        :host([type="white"]:focus) {
             background-color: rgba(255, 255, 255, 0.8);
             color: var(--color-abbey);
         }
         :host([type="black"]) {
             background-color: var(--color-black);
         }
-        :host([type="black"]):hover,
-        :host([type="black"]):focus {
+        :host([type="black"]:hover),
+        :host([type="black"]:focus) {
             background-color: var(--color-abbey);
         }
         /** Outline button */
         :host([outline]),
-        :host([outline]):hover,
-        :host([outline]):focus {
+        :host([outline]:hover),
+        :host([outline]:focus) {
             background-color: transparent;
             border-style: solid;
             border-width: 1px;
@@ -100,17 +108,17 @@ Custom property | Description | Default
             border-color: var(--color-kano-orange);
             color: var(--color-kano-orange);
         }
-        :host([outline][type="primary"]):hover,
-        :host([outline][type="primary"]):focus {
-            border-color: var(--color-pumpkin);
-            color: var(--color-pumpkin);
+        :host([outline][type="primary"]:hover),
+        :host([outline][type="primary"]:focus) {
+            border-color: var(--color-flame);
+            color: var(--color-flame);
         }
         :host([outline][type="secondary"]) {
             border-color: var(--color-grassland);
             color: var(--color-grassland);
         }
-        :host([outline][type="secondary"]):hover,
-        :host([outline][type="secondary"]):focus {
+        :host([outline][type="secondary"]:hover),
+        :host([outline][type="secondary"]:focus) {
             border-color: var(--color-apple);
             color: var(--color-apple);
         }
@@ -118,17 +126,17 @@ Custom property | Description | Default
             border-color: var(--color-grey);
             color: var(--color-grey);
         }
-        :host([outline][type="tertiary"]):hover,
-        :host([outline][type="tertiary"]):focus {
-            border-color: var(--color-stone);
-            color: var(--color-stone);
+        :host([outline][type="tertiary"]:hover),
+        :host([outline][type="tertiary"]:focus) {
+            border-color: var(--color-chateau);
+            color: var(--color-chateau);
         }
         :host([outline][type="warning"]) {
             border-color: var(--color-cinnabar);
             color: var(--color-cinnabar);
         }
-        :host([outline][type="warning"]):hover,
-        :host([outline][type="warning"]):focus {
+        :host([outline][type="warning"]:hover),
+        :host([outline][type="warning"]:focus) {
             border-color: var(--color-flamingo);
             color: var(--color-flamingo);
         }
@@ -136,8 +144,8 @@ Custom property | Description | Default
             border-color: rgba(255, 255, 255, 1);
             color: rgba(255, 255, 255, 1);
         }
-        :host([outline][type="white"]):hover,
-        :host([outline][type="white"]):focus {
+        :host([outline][type="white"]:hover),
+        :host([outline][type="white"]:focus) {
             border-color: rgba(255, 255, 255, 0.8);
             color: rgba(255, 255, 255, 0.8);
         }
@@ -145,8 +153,8 @@ Custom property | Description | Default
             border-color: var(--color-black);
             color: var(--color-black);
         }
-        :host([outline][type="black"]):hover,
-        :host([outline][type="black"]):focus {
+        :host([outline][type="black"]:hover),
+        :host([outline][type="black"]:focus) {
             border-color: var(--color-abbey);
             color: var(--color-abbey);
         }
@@ -154,64 +162,64 @@ Custom property | Description | Default
         :host([ghost][type="primary"]):not([outline]) {
             background-color: rgba(255, 105, 0, 0.4);
         }
-        :host([ghost][type="primary"]):not([outline]):hover,
-        :host([ghost][type="primary"]):not([outline]):focus {
+        :host([ghost][type="primary"]):not([outline]:hover),
+        :host([ghost][type="primary"]):not([outline]:focus) {
             background-color: rgba(255, 105, 0, 0.8);
         }
         :host([ghost][type="primary"][outline]) {
             border-color: rgba(255, 105, 0, 0.4);
             color: rgba(255, 105, 0, 0.4);
         }
-        :host([ghost][type="primary"][outline]):hover,
-        :host([ghost][type="primary"][outline]):focus {
+        :host([ghost][type="primary"][outline]:hover),
+        :host([ghost][type="primary"][outline]:focus) {
             border-color: rgba(255, 105, 0, 0.8);
             color: rgba(255, 105, 0, 0.8);
         }
         :host([ghost][type="secondary"]):not([outline]) {
             background-color: rgba(136, 196, 64, 0.4);
         }
-        :host([ghost][type="secondary"]):not([outline]):hover,
-        :host([ghost][type="secondary"]):not([outline]):focus {
+        :host([ghost][type="secondary"]):not([outline]:hover),
+        :host([ghost][type="secondary"]):not([outline]:focus) {
             background-color: rgba(136, 196, 64, 0.8);
         }
         :host([ghost][type="secondary"][outline]) {
             border-color: rgba(136, 196, 64, 0.4);
             color: rgba(136, 196, 64, 0.4);
         }
-        :host([ghost][type="secondary"][outline]):hover,
-        :host([ghost][type="secondary"][outline]):focus {
+        :host([ghost][type="secondary"][outline]:hover),
+        :host([ghost][type="secondary"][outline]:focus) {
             border-color: rgba(136, 196, 64, 0.8);
             color: rgba(136, 196, 64, 0.8);
         }
         :host([ghost][type="tertiary"]):not([outline]) {
             background-color: rgba(159, 164, 168, 0.4);
         }
-        :host([ghost][type="tertiary"]):not([outline]):hover,
-        :host([ghost][type="tertiary"]):not([outline]):focus {
+        :host([ghost][type="tertiary"]):not([outline]:hover),
+        :host([ghost][type="tertiary"]):not([outline]:focus) {
             background-color: rgba(159, 164, 168, 0.8);
         }
         :host([ghost][type="tertiary"][outline]) {
             border-color: rgba(159, 164, 168, 0.4);
             color: rgba(159, 164, 168, 0.4);
         }
-        :host([ghost][type="tertiary"][outline]):hover,
-        :host([ghost][type="tertiary"][outline]):focus {
+        :host([ghost][type="tertiary"][outline]:hover),
+        :host([ghost][type="tertiary"][outline]:focus) {
             border-color: rgba(159, 164, 168, 0.8);
             color: rgba(159, 164, 168, 0.8);
         }
         :host([ghost][type="warning"]):not([outline]) {
             background-color: rgba(246, 54, 54, 0.4);
         }
-        :host([ghost][type="warning"]):not([outline]):hover,
-        :host([ghost][type="warning"]):not([outline]):focus {
+        :host([ghost][type="warning"]):not([outline]:hover),
+        :host([ghost][type="warning"]):not([outline]:focus) {
             background-color: rgba(246, 54, 54, 0.8);
         }
         :host([ghost][type="warning"][outline]) {
             border-color: rgba(246, 54, 54, 0.4);
             color: rgba(246, 54, 54, 0.4);
         }
-        :host([ghost][type="warning"][outline]):hover,
-        :host([ghost][type="warning"][outline]):focus {
+        :host([ghost][type="warning"][outline]:hover),
+        :host([ghost][type="warning"][outline]:focus) {
             border-color: rgba(246, 54, 54, 0.8);
             color: rgba(246, 54, 54, 0.8);
         }
@@ -219,8 +227,8 @@ Custom property | Description | Default
             background-color: rgba(255, 255, 255, 0.4);
             color: var(--color-abbey);
         }
-        :host([ghost][type="white"]):not([outline]):hover,
-        :host([ghost][type="white"]):not([outline]):focus {
+        :host([ghost][type="white"]):not([outline]:hover),
+        :host([ghost][type="white"]):not([outline]:focus) {
             background-color: rgba(255, 255, 255, 0.8);
             color: var(--color-grey);
         }
@@ -228,90 +236,96 @@ Custom property | Description | Default
             border-color: rgba(255, 255, 255, 0.4);
             color: rgba(255, 255, 255, 0.4);
         }
-        :host([ghost][type="white"][outline]):hover,
-        :host([ghost][type="white"][outline]):focus {
+        :host([ghost][type="white"][outline]:hover),
+        :host([ghost][type="white"][outline]:focus) {
             border-color: rgba(255, 255, 255, 0.8);
             color: rgba(255, 255, 255, 0.8);
         }
         :host([ghost][type="black"]):not([outline]) {
             background-color: rgba(41, 47, 53, 0.4);
         }
-        :host([ghost][type="black"]):not([outline]):hover,
-        :host([ghost][type="black"]):not([outline]):focus {
+        :host([ghost][type="black"]):not([outline]:hover),
+        :host([ghost][type="black"]):not([outline]:focus) {
             background-color: rgba(41, 47, 53, 0.8);
         }
         :host([ghost][type="black"][outline]) {
             border-color: rgba(41, 47, 53, 0.4);
             color: rgba(41, 47, 53, 0.4);
         }
-        :host([ghost][type="black"][outline]):hover,
-        :host([ghost][type="black"][outline]):focus {
+        :host([ghost][type="black"][outline]:hover),
+        :host([ghost][type="black"][outline]:focus) {
             border-color: rgba(41, 47, 53, 0.8);
             color: rgba(41, 47, 53, 0.8);
         }
         /** Transparent button */
         :host([transparent]),
-        :host([transparent]):hover {
+        :host([transparent]:hover) {
             background: transparent;
         }
         :host([transparent][outline]),
-        :host([transparent][outline]):hover {
+        :host([transparent][outline]:hover) {
             border-color: transparent;
         }
         :host([transparent][type="primary"]) {
             color: var(--color-kano-orange);
         }
-        :host([transparent][type="primary"]):hover,
-        :host([transparent][type="primary"]):focus {
-            color: var(--color-pumpkin);
+        :host([transparent][type="primary"]:hover),
+        :host([transparent][type="primary"]:focus) {
+            color: var(--color-flame);
         }
         :host([transparent][type="secondary"]) {
             color: var(--color-grassland);
         }
-        :host([transparent][type="secondary"]):hover,
-        :host([transparent][type="secondary"]):focus {
+        :host([transparent][type="secondary"]:hover),
+        :host([transparent][type="secondary"]:focus) {
             color: var(--color-apple);
         }
         :host([transparent][type="tertiary"]) {
             color: var(--color-grey);
         }
-        :host([transparent][type="tertiary"]):hover,
-        :host([transparent][type="tertiary"]):focus {
-            color: var(--color-stone);
+        :host([transparent][type="tertiary"]:hover),
+        :host([transparent][type="tertiary"]:focus) {
+            color: var(--color-chateau);
         }
         :host([transparent][type="warning"]) {
             color: var(--color-cinnabar);
         }
-        :host([transparent][type="warning"]):hover,
-        :host([transparent][type="warning"]):focus {
+        :host([transparent][type="warning"]:hover),
+        :host([transparent][type="warning"]:focus) {
             color: var(--color-flamingo);
         }
         :host([transparent][type="white"]) {
             color: rgba(255, 255, 255, 1);
         }
-        :host([transparent][type="white"]):hover,
-        :host([transparent][type="white"]):focus {
+        :host([transparent][type="white"]:hover),
+        :host([transparent][type="white"]:focus) {
             color: rgba(255, 255, 255, 0.8);
         }
         :host([transparent][type="black"]) {
             color: var(--color-black)
         }
-        :host([transparent][type="black"]):hover,
-        :host([transparent][type="black"]):focus {
+        :host([transparent][type="black"]:hover),
+        :host([transparent][type="black"]:focus) {
             color: var(--color-abbey);
         }
         /** Disabled button */
         :host([disabled]),
-        :host([disabled]):hover,
-        :host([disabled]):focus {
+        :host([disabled]:hover),
+        :host([disabled]:focus) {
             background-color: var(--color-grey);
             cursor: default;
         }
         :host iron-icon {
             display: inline-block;
-            height: 16px;
             vertical-align: -5%;
-            width: 16px;
+        }
+        :host([size="small"]) iron-icon {
+            height: 12px;
+            width: 12px;
+        }
+        :host([size="medium"]) iron-icon {
+            height: 14px;
+            width: 14px;
         }
     </style>
     <dom-if>
@@ -361,6 +375,14 @@ Custom property | Description | Default
             outline: {
                 type: Boolean,
                 value: false,
+                reflectToAttribute: true
+            },
+            /**
+             * Boolean to indicate whether the button should be square
+             */
+            size: {
+                type: String,
+                value: 'medium',
                 reflectToAttribute: true
             },
             /**

@@ -38,6 +38,10 @@
                 assert.equal(element.type, 'primary');
             });
 
+            test('should be medium by default', function() {
+                assert.equal(element.size, 'medium');
+            });
+
             test('should be not have an outline by default', function() {
                 assert.equal(element.outline, false);
             });
