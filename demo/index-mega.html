@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+        <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+        <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+        <link rel="import" href="../kwc-mega-button.html">
+        <custom-style>
+            <style is="custom-style" include="demo-pages-shared-styles">
+                h2 {
+                    padding-bottom: 20px;
+                }
+                kwc-mega-button {
+                    margin-right: 20px;
+                }
+                .action.remix {
+                    --kwc-mega-button-color: var(--color-dodger-blue);
+                }
+            </style>
+        </custom-style>
+    </head>
+    <body unresolved>
+        <div class="vertical-section-container centered">
+            <demo-snippet>
+                <template>
+                    <h2>Without Icon (not an intended use case)</h2>
+                    <kwc-mega-button>Default</kwc-mega-button>
+                </template>
+            </demo-snippet>
+            <demo-snippet>
+                <template>
+                    <h2>Icon (default color)</h2>
+                    <kwc-mega-button icon-id="kwc-social-icons:remix">
+                        Remix
+                    </kwc-mega-button>
+                </template>
+            </demo-snippet>
+            <demo-snippet>
+                <template>
+                    <h2>Icon (custom color)</h2>
+                    <!-- 
+                    <style>
+                        .action.remix {
+                            --kwc-mega-button-color: var(--color-dodger-blue);
+                        }
+                    </style>
+                    -->
+                    <kwc-mega-button class="action remix"
+                                     icon-id="kwc-social-icons:code">
+                        View Code
+                    </kwc-mega-button>
+                </template>
+            </demo-snippet>
+            <demo-snippet>
+                <template>
+                    <h2>Disabled</h2>
+                    <kwc-mega-button icon-id="kwc-social-icons:like" disabled>
+                        Like
+                    </kwc-mega-button>
+                </template>
+            </demo-snippet>
+        </div>
+    </body>
+</html>
