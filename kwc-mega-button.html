@@ -19,9 +19,12 @@ Custom property | Description | Default
   <template>
     <style>
         /** Button default */
-        :host {
+        :host, button{
             height: 48px;
             min-width: 150px;
+        }
+
+        button {
             line-height: 48px;
             outline: none;
             overflow: hidden;
@@ -45,16 +48,13 @@ Custom property | Description | Default
             text-align: center;
             text-transform: uppercase;
 
-            /* transition-property: background-color, border-color, color;
-            transition-duration: 0.3s;
-            transition-timing-function: ease; */
         }
-        /* iron-icon {
-            transition-property: color;
+        iron-icon, button {
+            transition-property: background-color, border-color, color;
             transition-duration: 0.3s;
             transition-timing-function: ease;
-        } */
-        :host iron-icon {
+        }
+        button iron-icon {
             display: inline-block;
             vertical-align: middle;
             margin-right: 5px;
@@ -62,30 +62,32 @@ Custom property | Description | Default
             color: var(--kwc-mega-button-color, var(--color-kano-orange));
         }
 
-        :host(:hover),
-        :host(:focus) {
+        :host(:hover) button,
+        :host(:focus) button {
             color: white;
             background-color: var(--kwc-mega-button-color, var(--color-kano-orange));
         }
-        :host(:hover) iron-icon,
-        :host(:focus) iron-icon {
+        :host(:hover) button iron-icon,
+        :host(:focus) button iron-icon {
             color: white;
         }
 
         /** Disabled button */
-        :host([disabled]),
-        :host([disabled]) iron-icon,
-        :host([disabled]:hover),
-        :host([disabled]:focus) {
+        :host([disabled]) button,
+        :host([disabled]) button iron-icon,
+        :host([disabled]:hover) button,
+        :host([disabled]:focus) button {
             background-color: var(--color-grey);
             cursor: default;
             color: var(--color-chateau);
         }
     </style>
-    <template is="dom-if" if="[[_displayIcon]]">
-        <iron-icon icon="[[iconId]]"></iron-icon>
-    </template>
-    <slot id="content"></slot>
+    <button disabled$="[[disabled]]">
+        <template is="dom-if" if="[[_displayIcon]]">
+            <iron-icon icon="[[iconId]]"></iron-icon>
+        </template>
+        <slot id="content"></slot>
+    </button>
   </template>
 
   <script>
@@ -114,7 +116,11 @@ Custom property | Description | Default
         },
         _iconProvided (iconId) {
             return iconId !== undefined && iconId !== null;
-        }
+        },
+        // _onTap (e) {
+        //     e.stopPropagation();
+        //     this.dispatchEvent(new Event(e.type, {bubbles: true, composed: true}));
+        // }
     });
   </script>
 </dom-module>
