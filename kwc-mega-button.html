@@ -1,5 +1,5 @@
 <link rel="import" href="../polymer/polymer.html">
-+<link rel="import" href="../iron-icon/iron-icon.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
 
 <link rel="import" href="../kwc-style/kwc-style.html">
 <link rel="import" href="../kwc-icons/kwc-icons.html">
@@ -21,12 +21,15 @@ Custom property | Description | Default
   <template>
     <style>
         /** Button default */
-        :host, button{
+        :host{
             height: 48px;
             min-width: 150px;
+            display: inline-block;
         }
 
         button {
+            height: 100%;
+            width: 100%;
             line-height: 48px;
             outline: none;
             overflow: hidden;
@@ -118,11 +121,7 @@ Custom property | Description | Default
         },
         _iconProvided (iconId) {
             return iconId !== undefined && iconId !== null;
-        },
-        // _onTap (e) {
-        //     e.stopPropagation();
-        //     this.dispatchEvent(new Event(e.type, {bubbles: true, composed: true}));
-        // }
+        }
     });
   </script>
 </dom-module>
