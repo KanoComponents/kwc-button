@@ -1,0 +1,103 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../kwc-style/kwc-style.html">
+<link rel="import" href="../web-components/kano-icons/kano-icons.html">
+
+<!--
+`kwc-soft-button`
+An atomic button element with Kano styling
+
+Custom property | Description | Default
+----------------|-------------|----------
+`--kwc-soft-button-font` | Font for the element | `--font-body`
+
+@group Kano Web Components
+@demo demo/kwc-soft-button.html
+-->
+
+<dom-module id="kwc-soft-button">
+  <template>
+    <style>
+        /** Button default */
+        :host button {
+            background-color: transparent;
+            border: 1px solid #a2a6aa;
+            border-radius: 3px;
+            color: var(--color-chateau);
+            cursor: pointer;
+            display: inline-block;
+            font-family: var(--kwc-soft-button-font, var(--font-body));
+            font-size: 14px;
+            font-weight: bold;
+            height: 40px;
+            line-height: 40px;
+            outline: none;
+            overflow: hidden;
+            padding: 0 22px;
+            text-align: center;
+            text-transform: uppercase;
+            transition-property: background-color, border-color, color;
+            transition-duration: 0.3s;
+            transition-timing-function: ease;
+            white-space: nowrap;
+        }
+        :host(:hover) button,
+        :host([active]) button {
+            border-color: var(--color-kano-orange);
+        }
+        :host([disabled]) button {
+            border-color: #d3d6d8;
+            color: #a2a6aa;
+        }
+    </style>
+    <button>
+        <dom-if>
+            <template is="dom-if" if="[[_displayIcon]]">
+                <iron-icon icon="[[iconId]]"></iron-icon>
+            </template>
+        </dom-if>
+        <slot id="content"></slot>
+    </button>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'kwc-soft-button',
+      properties: {
+            /**
+             * Boolean to toggle whether the button is in use – eg. representing
+             * the currently selected page or item.
+             */
+            active: {
+                type: Boolean,
+                value: false,
+                reflectToAttribute: true
+            },
+            /** Boolean to indicate whether the button is `disabled` */
+            disabled: {
+                type: Boolean,
+                value: false,
+                reflectToAttribute: true
+            },
+            _displayIcon: {
+                type: Boolean,
+                computed: '_iconProvided(iconId)'
+            },
+            /**
+             * String to indicate which button (if any) the button
+             * should display.
+             */
+            iconId: {
+                type: String
+            },
+        },
+        /**
+         * Compute whether the icon has been provided.
+         * @param {String || null} iconId
+         * @returns {Boolean}
+         */
+        _iconProvided (iconId) {
+            return iconId !== undefined && iconId !== null;
+        }
+    });
+  </script>
+</dom-module>
