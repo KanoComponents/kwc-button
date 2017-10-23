@@ -1,6 +1,6 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../kwc-style/kwc-style.html">
-<link rel="import" href="../web-components/kano-icons/kano-icons.html">
+<link rel="import" href="../kwc-icons/kwc-icons.html">
 
 <!--
 `kwc-soft-button`
@@ -40,21 +40,31 @@ Custom property | Description | Default
             transition-timing-function: ease;
             white-space: nowrap;
         }
+        :host iron-icon {
+            display: inline-block;
+            height: 16px;
+            margin-right: 8px;
+            transition: color 0.3s ease;
+            vertical-align: -8%;
+            width: 16px;
+        }
         :host(:hover) button,
         :host([active]) button {
             border-color: var(--color-kano-orange);
+        }
+        :host(:not([disabled]):hover) iron-icon,
+        :host([active]) iron-icon {
+            color: var(--color-kano-orange);
         }
         :host([disabled]) button {
             border-color: #d3d6d8;
             color: #a2a6aa;
         }
     </style>
-    <button>
-        <dom-if>
-            <template is="dom-if" if="[[_displayIcon]]">
-                <iron-icon icon="[[iconId]]"></iron-icon>
-            </template>
-        </dom-if>
+    <button disabled$="[[disabled]]">
+        <template is="dom-if" if="[[_displayIcon]]">
+            <iron-icon icon="[[iconId]]"></iron-icon>
+        </template>
         <slot id="content"></slot>
     </button>
   </template>
@@ -88,7 +98,7 @@ Custom property | Description | Default
              */
             iconId: {
                 type: String
-            },
+            }
         },
         /**
          * Compute whether the icon has been provided.
