@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>kwc-mega-button test</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+
+    <link rel="import" href="../kwc-mega-button.html">
+  </head>
+  <body>
+    <test-fixture id="basic">
+      <template>
+        <kwc-mega-button>Default button</kwc-mega-button>
+      </template>
+    </test-fixture>
+
+    <script>
+        suite('Default kwc-mega-button', function() {
+            var element;
+
+             setup(function () {
+                element = fixture('basic');
+             });
+
+            test('instantiating the element works', function() {
+                assert.equal(element.is, 'kwc-mega-button');
+            });
+
+            test('should be enabled by default', function() {
+                assert.equal(element.disabled, false);
+            });
+
+            test('should not have an icon by default', function() {
+                assert.equal(element.iconId, undefined);
+            });
+
+            test('can be disabled imperatively', function() {
+                element.disabled = true;
+                expect(element.hasAttribute('disabled')).to.be.eql(true);
+            });
+        });
+    </script>
+  </body>
+</html>

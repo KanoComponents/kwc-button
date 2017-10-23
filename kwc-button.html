@@ -1,6 +1,6 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../kwc-style/kwc-style.html">
-<link rel="import" href="../web-components/kano-icons/kano-icons.html">
+<link rel="import" href="../kwc-icons/kwc-icons.html">
 
 <!--
 `kwc-button`
@@ -330,7 +330,7 @@ Custom property | Description | Default
     </style>
     <dom-if>
         <template is="dom-if" if="[[_displayIcon]]">
-            <iron-icon icon="kano-icons:[[iconId]]"></iron-icon>
+            <iron-icon icon="[[iconId]]"></iron-icon>
         </template>
     </dom-if>
     <slot id="content"></slot>
