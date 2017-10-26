@@ -49,14 +49,17 @@ Custom property | Description | Default
             width: 16px;
         }
         :host(:hover) button,
-        :host([active]) button {
+        :host([active]) button,
+        :host(.iron-selected) button {
             border-color: var(--color-kano-orange);
         }
         :host(:not([disabled]):hover) iron-icon,
-        :host([active]) iron-icon {
+        :host([active]) iron-icon,
+        :host(.iron-selected) iron-icon {
             color: var(--color-kano-orange);
         }
         :host([disabled]) button {
+            /** TODO: Use colors from `kwc-style` */
             border-color: #d3d6d8;
             color: #a2a6aa;
         }
