@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<testsuites>
+	<testsuite errors="0" failures="1" name="test/kwc-button_test.html (chrome 61)" skipped="0" tests="10">
+		<testcase name="Default kwc-button; instantiating the element works" time="1"/>
+		<testcase name="Default kwc-button; should be enabled by default" time="0"/>
+		<testcase name="Default kwc-button; should be primary by default" time="3">
+			<failure message="expected &#x27;button&#x27; to equal &#x27;primary&#x27;">expected 'button' to equal 'primary'
+  Context.&lt;anonymous&gt; at kwc-button_test.html:38</failure>
+		</testcase>
+		<testcase name="Default kwc-button; should be medium by default" time="0"/>
+		<testcase name="Default kwc-button; should be not have an outline by default" time="0"/>
+		<testcase name="Default kwc-button; should not be ghosted by default" time="0"/>
+		<testcase name="Default kwc-button; should be opaque by default" time="0"/>
+		<testcase name="Default kwc-button; should not have an icon by default" time="0"/>
+		<testcase name="Default kwc-button; should be rounded by default" time="0"/>
+		<testcase name="Default kwc-button; can be disabled imperatively" time="2"/>
+	</testsuite>
+	<testsuite errors="0" failures="0" name="test/kwc-mega-button_test.html (chrome 61)" skipped="0" tests="4">
+		<testcase name="Default kwc-mega-button; instantiating the element works" time="0"/>
+		<testcase name="Default kwc-mega-button; should be enabled by default" time="0"/>
+		<testcase name="Default kwc-mega-button; should not have an icon by default" time="0"/>
+		<testcase name="Default kwc-mega-button; can be disabled imperatively" time="0"/>
+	</testsuite>
+	<testsuite errors="0" failures="0" name="test/kwc-soft-button_test.html (chrome 61)" skipped="0" tests="4">
+		<testcase name="Default kwc-soft-button; instantiating the element works" time="1"/>
+		<testcase name="Default kwc-soft-button; should be enabled by default" time="0"/>
+		<testcase name="Default kwc-soft-button; should not have an icon by default" time="0"/>
+		<testcase name="Default kwc-soft-button; can be disabled imperatively" time="0"/>
+	</testsuite>
+</testsuites>
