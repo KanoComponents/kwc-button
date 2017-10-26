@@ -18,7 +18,7 @@ Custom property | Description | Default
   <template>
     <style>
         /** Button default */
-        :host {
+        :host button {
             border: none;
             border-radius: 40px;
             color: white;
@@ -37,282 +37,282 @@ Custom property | Description | Default
             white-space: nowrap;
         }
         /** Sizes */
-        :host([size="small"]) {
+        :host([size="small"]) button {
             font-size: 12px;
             height: 32px;
             line-height: 32px;
         }
-        :host([size="medium"]) {
+        :host([size="medium"]) button {
             font-size: 14px;
             height: 40px;
             line-height: 40px;
         }
         /** Square button */
-        :host([square]) {
+        :host([square]) button {
             border-radius: 3px;
         }
         /** Default/filled button */
-        :host([type="primary"]) {
+        :host([variant="primary"]) button {
             background-color: var(--color-kano-orange);
         }
-        :host([type="primary"]:hover),
-        :host([type="primary"]:focus) {
+        :host([variant="primary"]:hover) button,
+        :host([variant="primary"]:focus) button {
             background-color: var(--color-flame);
         }
-        :host([type="secondary"]) {
+        :host([variant="secondary"]) button {
             background-color: var(--color-grassland);
         }
-        :host([type="secondary"]:hover),
-        :host([type="secondary"]:focus) {
+        :host([variant="secondary"]:hover) button,
+        :host([variant="secondary"]:focus) button {
             background-color: var(--color-apple);
         }
-        :host([type="tertiary"]) {
+        :host([variant="tertiary"]) button {
             background-color: var(--color-grey);
         }
-        :host([type="tertiary"]:hover),
-        :host([type="tertiary"]:focus) {
+        :host([variant="tertiary"]:hover) button,
+        :host([variant="tertiary"]:focus) button {
             background-color: var(--color-chateau);
         }
-        :host([type="warning"]) {
+        :host([variant="warning"]) button {
             background-color: var(--color-cinnabar);
         }
-        :host([type="warning"]:hover),
-        :host([type="warning"]:focus) {
+        :host([variant="warning"]:hover) button,
+        :host([variant="warning"]:focus) button {
             background-color: var(--color-flamingo);
         }
-        :host([type="white"]) {
+        :host([variant="white"]) button {
             background-color: rgba(255, 255, 255, 1);
             color: var(--color-abbey);
         }
-        :host([type="white"]:hover),
-        :host([type="white"]:focus) {
+        :host([variant="white"]:hover) button,
+        :host([variant="white"]:focus) button {
             background-color: rgba(255, 255, 255, 0.8);
             color: var(--color-abbey);
         }
-        :host([type="black"]) {
+        :host([variant="black"]) button {
             background-color: var(--color-black);
         }
-        :host([type="black"]:hover),
-        :host([type="black"]:focus) {
+        :host([variant="black"]:hover) button,
+        :host([variant="black"]:focus) button {
             background-color: var(--color-abbey);
         }
         /** Outline button */
-        :host([outline]),
-        :host([outline]:hover),
-        :host([outline]:focus) {
+        :host([outline]) button,
+        :host([outline]:hover) button,
+        :host([outline]:focus) button {
             background-color: transparent;
             border-style: solid;
             border-width: 1px;
         }
-        :host([outline][type="primary"]) {
+        :host([outline][variant="primary"]) button {
             border-color: var(--color-kano-orange);
             color: var(--color-kano-orange);
         }
-        :host([outline][type="primary"]:hover),
-        :host([outline][type="primary"]:focus) {
+        :host([outline][variant="primary"]:hover) button,
+        :host([outline][variant="primary"]:focus) button {
             border-color: var(--color-flame);
             color: var(--color-flame);
         }
-        :host([outline][type="secondary"]) {
+        :host([outline][variant="secondary"]) button {
             border-color: var(--color-grassland);
             color: var(--color-grassland);
         }
-        :host([outline][type="secondary"]:hover),
-        :host([outline][type="secondary"]:focus) {
+        :host([outline][variant="secondary"]:hover) button,
+        :host([outline][variant="secondary"]:focus) button {
             border-color: var(--color-apple);
             color: var(--color-apple);
         }
-        :host([outline][type="tertiary"]) {
+        :host([outline][variant="tertiary"]) button {
             border-color: var(--color-grey);
             color: var(--color-grey);
         }
-        :host([outline][type="tertiary"]:hover),
-        :host([outline][type="tertiary"]:focus) {
+        :host([outline][variant="tertiary"]:hover) button,
+        :host([outline][variant="tertiary"]:focus) button {
             border-color: var(--color-chateau);
             color: var(--color-chateau);
         }
-        :host([outline][type="warning"]) {
+        :host([outline][variant="warning"]) button {
             border-color: var(--color-cinnabar);
             color: var(--color-cinnabar);
         }
-        :host([outline][type="warning"]:hover),
-        :host([outline][type="warning"]:focus) {
+        :host([outline][variant="warning"]:hover) button,
+        :host([outline][variant="warning"]:focus) button {
             border-color: var(--color-flamingo);
             color: var(--color-flamingo);
         }
-        :host([outline][type="white"]) {
+        :host([outline][variant="white"]) button {
             border-color: rgba(255, 255, 255, 1);
             color: rgba(255, 255, 255, 1);
         }
-        :host([outline][type="white"]:hover),
-        :host([outline][type="white"]:focus) {
+        :host([outline][variant="white"]:hover) button,
+        :host([outline][variant="white"]:focus) button {
             border-color: rgba(255, 255, 255, 0.8);
             color: rgba(255, 255, 255, 0.8);
         }
-        :host([outline][type="black"]) {
+        :host([outline][variant="black"]) button {
             border-color: var(--color-black);
             color: var(--color-black);
         }
-        :host([outline][type="black"]:hover),
-        :host([outline][type="black"]:focus) {
+        :host([outline][variant="black"]:hover) button,
+        :host([outline][variant="black"]:focus) button {
             border-color: var(--color-abbey);
             color: var(--color-abbey);
         }
         /** Ghost button */
-        :host([ghost][type="primary"]):not([outline]) {
+        :host([ghost][variant="primary"]):not([outline]) button {
             background-color: rgba(255, 105, 0, 0.4);
         }
-        :host([ghost][type="primary"]):not([outline]:hover),
-        :host([ghost][type="primary"]):not([outline]:focus) {
+        :host([ghost][variant="primary"]):not([outline]:hover) button,
+        :host([ghost][variant="primary"]):not([outline]:focus) button {
             background-color: rgba(255, 105, 0, 0.8);
         }
-        :host([ghost][type="primary"][outline]) {
+        :host([ghost][variant="primary"][outline]) button {
             border-color: rgba(255, 105, 0, 0.4);
             color: rgba(255, 105, 0, 0.4);
         }
-        :host([ghost][type="primary"][outline]:hover),
-        :host([ghost][type="primary"][outline]:focus) {
+        :host([ghost][variant="primary"][outline]:hover) button,
+        :host([ghost][variant="primary"][outline]:focus) button {
             border-color: rgba(255, 105, 0, 0.8);
             color: rgba(255, 105, 0, 0.8);
         }
-        :host([ghost][type="secondary"]):not([outline]) {
+        :host([ghost][variant="secondary"]):not([outline]) button {
             background-color: rgba(136, 196, 64, 0.4);
         }
-        :host([ghost][type="secondary"]):not([outline]:hover),
-        :host([ghost][type="secondary"]):not([outline]:focus) {
+        :host([ghost][variant="secondary"]):not([outline]:hover) button,
+        :host([ghost][variant="secondary"]):not([outline]:focus) button {
             background-color: rgba(136, 196, 64, 0.8);
         }
-        :host([ghost][type="secondary"][outline]) {
+        :host([ghost][variant="secondary"][outline]) button {
             border-color: rgba(136, 196, 64, 0.4);
             color: rgba(136, 196, 64, 0.4);
         }
-        :host([ghost][type="secondary"][outline]:hover),
-        :host([ghost][type="secondary"][outline]:focus) {
+        :host([ghost][variant="secondary"][outline]:hover) button,
+        :host([ghost][variant="secondary"][outline]:focus) button {
             border-color: rgba(136, 196, 64, 0.8);
             color: rgba(136, 196, 64, 0.8);
         }
-        :host([ghost][type="tertiary"]):not([outline]) {
+        :host([ghost][variant="tertiary"]):not([outline]) button {
             background-color: rgba(159, 164, 168, 0.4);
         }
-        :host([ghost][type="tertiary"]):not([outline]:hover),
-        :host([ghost][type="tertiary"]):not([outline]:focus) {
+        :host([ghost][variant="tertiary"]):not([outline]:hover) button,
+        :host([ghost][variant="tertiary"]):not([outline]:focus) button {
             background-color: rgba(159, 164, 168, 0.8);
         }
-        :host([ghost][type="tertiary"][outline]) {
+        :host([ghost][variant="tertiary"][outline]) button {
             border-color: rgba(159, 164, 168, 0.4);
             color: rgba(159, 164, 168, 0.4);
         }
-        :host([ghost][type="tertiary"][outline]:hover),
-        :host([ghost][type="tertiary"][outline]:focus) {
+        :host([ghost][variant="tertiary"][outline]:hover) button,
+        :host([ghost][variant="tertiary"][outline]:focus) button {
             border-color: rgba(159, 164, 168, 0.8);
             color: rgba(159, 164, 168, 0.8);
         }
-        :host([ghost][type="warning"]):not([outline]) {
+        :host([ghost][variant="warning"]):not([outline]) button {
             background-color: rgba(246, 54, 54, 0.4);
         }
-        :host([ghost][type="warning"]):not([outline]:hover),
-        :host([ghost][type="warning"]):not([outline]:focus) {
+        :host([ghost][variant="warning"]):not([outline]:hover) button,
+        :host([ghost][variant="warning"]):not([outline]:focus) button {
             background-color: rgba(246, 54, 54, 0.8);
         }
-        :host([ghost][type="warning"][outline]) {
+        :host([ghost][variant="warning"][outline]) button {
             border-color: rgba(246, 54, 54, 0.4);
             color: rgba(246, 54, 54, 0.4);
         }
-        :host([ghost][type="warning"][outline]:hover),
-        :host([ghost][type="warning"][outline]:focus) {
+        :host([ghost][variant="warning"][outline]:hover) button,
+        :host([ghost][variant="warning"][outline]:focus) button {
             border-color: rgba(246, 54, 54, 0.8);
             color: rgba(246, 54, 54, 0.8);
         }
-        :host([ghost][type="white"]):not([outline]) {
+        :host([ghost][variant="white"]):not([outline]) button {
             background-color: rgba(255, 255, 255, 0.4);
             color: var(--color-abbey);
         }
-        :host([ghost][type="white"]):not([outline]:hover),
-        :host([ghost][type="white"]):not([outline]:focus) {
+        :host([ghost][variant="white"]):not([outline]:hover) button,
+        :host([ghost][variant="white"]):not([outline]:focus) button {
             background-color: rgba(255, 255, 255, 0.8);
             color: var(--color-grey);
         }
-        :host([ghost][type="white"][outline]) {
+        :host([ghost][variant="white"][outline]) button {
             border-color: rgba(255, 255, 255, 0.4);
             color: rgba(255, 255, 255, 0.4);
         }
-        :host([ghost][type="white"][outline]:hover),
-        :host([ghost][type="white"][outline]:focus) {
+        :host([ghost][variant="white"][outline]:hover) button,
+        :host([ghost][variant="white"][outline]:focus) button {
             border-color: rgba(255, 255, 255, 0.8);
             color: rgba(255, 255, 255, 0.8);
         }
-        :host([ghost][type="black"]):not([outline]) {
+        :host([ghost][variant="black"]):not([outline]) button {
             background-color: rgba(41, 47, 53, 0.4);
         }
-        :host([ghost][type="black"]):not([outline]:hover),
-        :host([ghost][type="black"]):not([outline]:focus) {
+        :host([ghost][variant="black"]):not([outline]:hover) button,
+        :host([ghost][variant="black"]):not([outline]:focus) button {
             background-color: rgba(41, 47, 53, 0.8);
         }
-        :host([ghost][type="black"][outline]) {
+        :host([ghost][variant="black"][outline]) button {
             border-color: rgba(41, 47, 53, 0.4);
             color: rgba(41, 47, 53, 0.4);
         }
-        :host([ghost][type="black"][outline]:hover),
-        :host([ghost][type="black"][outline]:focus) {
+        :host([ghost][variant="black"][outline]:hover) button,
+        :host([ghost][variant="black"][outline]:focus) button {
             border-color: rgba(41, 47, 53, 0.8);
             color: rgba(41, 47, 53, 0.8);
         }
         /** Transparent button */
-        :host([transparent]),
-        :host([transparent]:hover) {
+        :host([transparent]) button,
+        :host([transparent]:hover) button {
             background: transparent;
         }
-        :host([transparent][outline]),
-        :host([transparent][outline]:hover) {
+        :host([transparent][outline]) button,
+        :host([transparent][outline]:hover) button {
             border-color: transparent;
         }
-        :host([transparent][type="primary"]) {
+        :host([transparent][variant="primary"]) button {
             color: var(--color-kano-orange);
         }
-        :host([transparent][type="primary"]:hover),
-        :host([transparent][type="primary"]:focus) {
+        :host([transparent][variant="primary"]:hover) button,
+        :host([transparent][variant="primary"]:focus) button {
             color: var(--color-flame);
         }
-        :host([transparent][type="secondary"]) {
+        :host([transparent][variant="secondary"]) button {
             color: var(--color-grassland);
         }
-        :host([transparent][type="secondary"]:hover),
-        :host([transparent][type="secondary"]:focus) {
+        :host([transparent][variant="secondary"]:hover) button,
+        :host([transparent][variant="secondary"]:focus) button {
             color: var(--color-apple);
         }
-        :host([transparent][type="tertiary"]) {
+        :host([transparent][variant="tertiary"]) button {
             color: var(--color-grey);
         }
-        :host([transparent][type="tertiary"]:hover),
-        :host([transparent][type="tertiary"]:focus) {
+        :host([transparent][variant="tertiary"]:hover) button,
+        :host([transparent][variant="tertiary"]:focus) button {
             color: var(--color-chateau);
         }
-        :host([transparent][type="warning"]) {
+        :host([transparent][variant="warning"]) button {
             color: var(--color-cinnabar);
         }
-        :host([transparent][type="warning"]:hover),
-        :host([transparent][type="warning"]:focus) {
+        :host([transparent][variant="warning"]:hover) button,
+        :host([transparent][variant="warning"]:focus) button {
             color: var(--color-flamingo);
         }
-        :host([transparent][type="white"]) {
+        :host([transparent][variant="white"]) button {
             color: rgba(255, 255, 255, 1);
         }
-        :host([transparent][type="white"]:hover),
-        :host([transparent][type="white"]:focus) {
+        :host([transparent][variant="white"]:hover) button,
+        :host([transparent][variant="white"]:focus) button {
             color: rgba(255, 255, 255, 0.8);
         }
-        :host([transparent][type="black"]) {
+        :host([transparent][variant="black"]) button {
             color: var(--color-black)
         }
-        :host([transparent][type="black"]:hover),
-        :host([transparent][type="black"]:focus) {
+        :host([transparent][variant="black"]:hover) button,
+        :host([transparent][variant="black"]:focus) button {
             color: var(--color-abbey);
         }
         /** Disabled button */
-        :host([disabled]),
-        :host([disabled]:hover),
-        :host([disabled]:focus) {
-            background-color: var(--color-grey);
+        :host([disabled]) button,
+        :host([disabled]:hover) button,
+        :host([disabled]:focus) button {
+            background-color: var(--color-grey) !important;
             cursor: default;
         }
         :host iron-icon {
@@ -328,12 +328,12 @@ Custom property | Description | Default
             width: 14px;
         }
     </style>
-    <dom-if>
+    <button disabled$="[[disabled]]" type="[[type]]">
         <template is="dom-if" if="[[_displayIcon]]">
             <iron-icon icon="[[iconId]]"></iron-icon>
         </template>
-    </dom-if>
-    <slot id="content"></slot>
+        <slot id="content"></slot>
+    </button>
   </template>
 
   <script>
@@ -402,6 +402,10 @@ Custom property | Description | Default
                 value: false,
                 reflectToAttribute: true
             },
+            type: {
+                type: String,
+                value: 'button'
+            },
             /**
              * String to indicate the role played by the button, and the styling
              * it should use:
@@ -413,7 +417,7 @@ Custom property | Description | Default
              *
              * Named `type` to avoid clashes with the HTML `role` attribute
              */
-            type: {
+            variant: {
                 type: String,
                 value: 'primary',
                 reflectToAttribute: true
