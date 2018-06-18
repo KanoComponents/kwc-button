@@ -19,10 +19,10 @@ Custom property | Description | Default
     <style>
         /** Button default */
         :host button {
-            background-color: transparent;
-            border: 1px solid #a2a6aa;
+            background-color: var(--kwc-soft-button-background, transparent);
+            border: 1px solid var(--kwc-soft-button-border, #a2a6aa);
             border-radius: 3px;
-            color: var(--color-chateau);
+            color: var(--kwc-soft-button-color, var(--color-chateau));
             cursor: pointer;
             display: inline-block;
             font-family: var(--kwc-soft-button-font, var(--font-body));
@@ -40,6 +40,21 @@ Custom property | Description | Default
             transition-timing-function: ease;
             white-space: nowrap;
         }
+        :host button:hover {
+            background-color: var(--kwc-soft-button-background-hover, transparent);
+            border-color: var(--kwc-soft-button-border-hover, #a2a6aa);
+            color: var(--kwc-soft-button-color-hover, --color-chateau);
+        }
+        :host([active]) button {
+            background-color: var(--kwc-soft-button-active-background, transparent);
+            border-color: var(--kwc-soft-button-active-border, #a2a6aa);
+            color: var(--kwc-soft-button-active-color, --color-chateau);
+        }
+        :host([active]) button:hover {
+            background-color: var(--kwc-soft-button-active-background-hover, transparent);
+            border-color: var(--kwc-soft-button-active-border-hover, #a2a6aa);
+            color: var(--kwc-soft-button-active-color-hover, --color-chateau);
+        }
         :host iron-icon {
             display: inline-block;
             height: 16px;
@@ -51,17 +66,24 @@ Custom property | Description | Default
         :host(:hover) button,
         :host([active]) button,
         :host(.iron-selected) button {
-            border-color: var(--color-kano-orange);
+            border-color: var(--kwc-soft-button-border, var(--color-kano-orange));
         }
         :host(:not([disabled]):hover) iron-icon,
         :host([active]) iron-icon,
         :host(.iron-selected) iron-icon {
-            color: var(--color-kano-orange);
+            color: var(--kwc-soft-button-icon, var(--color-kano-orange));
         }
         :host([disabled]) button {
             /** TODO: Use colors from `kwc-style` */
-            border-color: #d3d6d8;
-            color: #a2a6aa;
+            background-color: var(--kwc-soft-button-disabled-background, transparent);
+            border-color: var(--kwc-soft-button-disabled-border, #d3d6d8);
+            color: var(--kwc-soft-button-disabled-color, #a2a6aa);
+        }
+        :host([disabled]) button:hover {
+            /** TODO: Use colors from `kwc-style` */
+            background-color: var(--kwc-soft-button-disabled-background-hover, transparent);
+            border-color: var(--kwc-soft-button-disabled-border-hover, #d3d6d8);
+            color: var(--kwc-soft-button-disabled-color-hover, #a2a6aa);
         }
     </style>
     <button disabled$="[[disabled]]">

@@ -25,7 +25,6 @@ Custom property | Description | Default
             min-width: 150px;
             display: inline-block;
         }
-
         button {
             height: 100%;
             width: 100%;
@@ -38,9 +37,9 @@ Custom property | Description | Default
             display: inline-block;
 
             background-color: var(--kwc-mega-button-bg-color, rgba(255, 255, 255, 1));
-            color: var(--color-abbey);
+            color: var(--kwc-mega-button-color, var(--color-abbey));
 
-            border-color:var(--color-stone);
+            border-color: var(--kwc-mega-button-border, var(--color-stone));
             border-style: solid;
             border-width: 1px;
             border-radius: 5px;
@@ -63,17 +62,17 @@ Custom property | Description | Default
             vertical-align: middle;
             margin-right: 5px;
             bottom: 2px;
-            color: var(--kwc-mega-button-color, var(--color-kano-orange));
+            color: var(--kwc-mega-button-icon, var(--color-kano-orange));
         }
 
         :host(:hover) button,
         :host(:focus) button {
-            color: var(--kwc-mega-button-bg-color, white);
-            background-color: var(--kwc-mega-button-color, var(--color-kano-orange));
+            color: var(--kwc-mega-button-color-hover, white);
+            background-color: var(--kwc-mega-button-bg-hover, var(--color-kano-orange));
         }
         :host(:hover) button iron-icon,
         :host(:focus) button iron-icon {
-            color: var(--kwc-mega-button-bg-color, white);
+            color: var(--kwc-mega-button-icon-hover, white);
         }
 
         /** Disabled button */
@@ -81,9 +80,10 @@ Custom property | Description | Default
         :host([disabled]) button iron-icon,
         :host([disabled]:hover) button,
         :host([disabled]:focus) button {
-            background-color: var(--color-grey);
+            background-color: var(--kwc-mega-button-disabled-bg-color, var(--color-grey));
             cursor: default;
-            color: var(--color-chateau);
+            color: var(--kwc-mega-button-disabled-color, var(--color-chateau));
+            border-color: var(--kwc-mega-button-disabled-border, var(--color-stone));
         }
     </style>
     <button disabled$="[[disabled]]">
