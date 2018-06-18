@@ -13,6 +13,27 @@
                 h2 {
                     padding-bottom: 20px;
                 }
+                .styled {
+                    --kwc-soft-button-background: red;
+                    --kwc-soft-button-border: green;
+                    --color-chateau: null;
+                    --color-kano-orange: blue;
+                    --kwc-soft-button-background-hover: orange;
+                    --kwc-soft-button-border-hover: red;
+                    --kwc-soft-button-color-hover: white;
+                    --kwc-soft-button-active-background: yellow;
+                    --kwc-soft-button-active-border: red;
+                    --kwc-soft-button-active-color: green;
+                    --kwc-soft-button-active-background-hover: purple;
+                    --kwc-soft-button-active-border-hover: red;
+                    --kwc-soft-button-active-color-hover: white;
+                    --kwc-soft-button-disabled-background: grey;
+                    --kwc-soft-button-disabled-border: yellow;
+                    --kwc-soft-button-disabled-color: purple;
+                    --kwc-soft-button-disabled-background-hover: orange;
+                    --kwc-soft-button-disabled-border-hover: red;
+                    --kwc-soft-button-disabled-color-hover: white;
+                }
             </style>
         </custom-style>
     </head>
@@ -30,10 +51,30 @@
         <div class="vertical-section-container centered">
             <demo-snippet>
                 <template>
+                    <h2>Default Styled</h2>
+                    <kwc-soft-button class="styled">Default</kwc-soft-button>
+                    <kwc-soft-button class="styled" active>Active</kwc-soft-button>
+                    <kwc-soft-button class="styled" disabled>Disabled</kwc-soft-button>
+                </template>
+            </demo-snippet>
+        </div>
+        <div class="vertical-section-container centered">
+            <demo-snippet>
+                <template>
                     <h2>With Icon</h2>
                     <kwc-soft-button icon-id="kwc-ui-icons:comment">Default</kwc-soft-button>
                     <kwc-soft-button icon-id="kwc-ui-icons:user" active>Active</kwc-soft-button>
-                      <kwc-soft-button icon-id="kwc-ui-icons:like" disabled>Disabled</kwc-soft-button>
+                    <kwc-soft-button icon-id="kwc-ui-icons:like" disabled>Disabled</kwc-soft-button>
+                </template>
+            </demo-snippet>
+        </div>
+        <div class="vertical-section-container centered">
+            <demo-snippet>
+                <template>
+                    <h2>With Icon Styled</h2>
+                    <kwc-soft-button class="styled" icon-id="kwc-ui-icons:comment">Default</kwc-soft-button>
+                    <kwc-soft-button class="styled" icon-id="kwc-ui-icons:user" active>Active</kwc-soft-button>
+                    <kwc-soft-button class="styled" icon-id="kwc-ui-icons:like" disabled>Disabled</kwc-soft-button>
                 </template>
             </demo-snippet>
         </div>
