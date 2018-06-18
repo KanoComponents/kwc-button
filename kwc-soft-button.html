@@ -22,7 +22,7 @@ Custom property | Description | Default
             background-color: var(--kwc-soft-button-background, transparent);
             border: 1px solid var(--kwc-soft-button-border, #a2a6aa);
             border-radius: 3px;
-            color: var(--color-chateau);
+            color: var(--kwc-soft-button-color, var(--color-chateau));
             cursor: pointer;
             display: inline-block;
             font-family: var(--kwc-soft-button-font, var(--font-body));
@@ -66,12 +66,12 @@ Custom property | Description | Default
         :host(:hover) button,
         :host([active]) button,
         :host(.iron-selected) button {
-            border-color: var(--color-kano-orange);
+            border-color: var(--kwc-soft-button-border, var(--color-kano-orange));
         }
         :host(:not([disabled]):hover) iron-icon,
         :host([active]) iron-icon,
         :host(.iron-selected) iron-icon {
-            color: var(--color-kano-orange);
+            color: var(--kwc-soft-button-icon, var(--color-kano-orange));
         }
         :host([disabled]) button {
             /** TODO: Use colors from `kwc-style` */
