@@ -21,7 +21,7 @@ Custom property | Description | Default
         :host button {
             border: none;
             border-radius: 40px;
-            color: white;
+            color: var(--kwc-button-color, white);
             cursor: pointer;
             display: inline-block;
             font-family: var(--kwc-button-font, var(--font-body));
@@ -54,11 +54,13 @@ Custom property | Description | Default
         }
         /** Default/filled button */
         :host([variant="primary"]) button {
-            background-color: var(--color-kano-orange);
+            color: var(--kwc-button-color, white);
+            background: var(--kwc-button-background, var(--color-kano-orange));
         }
         :host([variant="primary"]:hover) button,
         :host([variant="primary"]:focus) button {
-            background-color: var(--color-flame);
+            color: var(--kwc-button-color-hover, white);
+            background-color: var(--kwc-button-background-hover, var(--color-flame));
         }
         :host([variant="secondary"]) button {
             background-color: var(--color-grassland);
@@ -106,13 +108,13 @@ Custom property | Description | Default
             border-width: 1px;
         }
         :host([outline][variant="primary"]) button {
-            border-color: var(--color-kano-orange);
-            color: var(--color-kano-orange);
+            border-color: var(--kwc-button-border, var(--color-kano-orange));
+            color: var(--kwc-button-color, var(--color-kano-orange));
         }
         :host([outline][variant="primary"]:hover) button,
         :host([outline][variant="primary"]:focus) button {
-            border-color: var(--color-flame);
-            color: var(--color-flame);
+            border-color: var(--kwc-button-border-hover, var(--color-flame));
+            color: var(--kwc-button-color-hover, var(--color-flame));
         }
         :host([outline][variant="secondary"]) button {
             border-color: var(--color-grassland);
