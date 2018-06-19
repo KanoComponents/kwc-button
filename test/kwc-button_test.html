@@ -6,10 +6,10 @@
 
     <title>kwc-button test</title>
 
-    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-    <script src="../../web-component-tester/browser.js"></script>
+    <script src="../../../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+    <script src="../../../wct-browser-legacy/browser.js"></script>
 
-    <link rel="import" href="../kwc-button.html">
+    <script type="module" src="../kwc-button.js"></script>
   </head>
   <body>
     <test-fixture id="basic">
@@ -18,55 +18,56 @@
       </template>
     </test-fixture>
 
-    <script>
-        suite('Default kwc-button', function() {
-            var element;
+    <script type="module">
+import '../kwc-button.js';
+suite('Default kwc-button', function() {
+    var element;
 
-             setup(function () {
-                element = fixture('basic');
-             });
+     setup(function () {
+        element = fixture('basic');
+     });
 
-            test('instantiating the element works', function() {
-                assert.equal(element.is, 'kwc-button');
-            });
+    test('instantiating the element works', function() {
+        assert.equal(element.is, 'kwc-button');
+    });
 
-            test('should be enabled by default', function() {
-                assert.equal(element.disabled, false);
-            });
+    test('should be enabled by default', function() {
+        assert.equal(element.disabled, false);
+    });
 
-            test('should be primary by default', function() {
-                assert.equal(element.variant, 'primary');
-            });
+    test('should be primary by default', function() {
+        assert.equal(element.variant, 'primary');
+    });
 
-            test('should be medium by default', function() {
-                assert.equal(element.size, 'medium');
-            });
+    test('should be medium by default', function() {
+        assert.equal(element.size, 'medium');
+    });
 
-            test('should be not have an outline by default', function() {
-                assert.equal(element.outline, false);
-            });
+    test('should be not have an outline by default', function() {
+        assert.equal(element.outline, false);
+    });
 
-            test('should not be ghosted by default', function() {
-                assert.equal(element.ghost, false);
-            });
+    test('should not be ghosted by default', function() {
+        assert.equal(element.ghost, false);
+    });
 
-            test('should be opaque by default', function() {
-                assert.equal(element.transparent, false);
-            });
+    test('should be opaque by default', function() {
+        assert.equal(element.transparent, false);
+    });
 
-            test('should not have an icon by default', function() {
-                assert.equal(element.iconId, undefined);
-            });
+    test('should not have an icon by default', function() {
+        assert.equal(element.iconId, undefined);
+    });
 
-            test('should be rounded by default', function() {
-                assert.equal(element.square, false);
-            });
+    test('should be rounded by default', function() {
+        assert.equal(element.square, false);
+    });
 
-            test('can be disabled imperatively', function() {
-                element.disabled = true;
-                expect(element.hasAttribute('disabled')).to.be.eql(true);
-            });
-        });
-    </script>
+    test('can be disabled imperatively', function() {
+        element.disabled = true;
+        expect(element.hasAttribute('disabled')).to.be.eql(true);
+    });
+});
+</script>
   </body>
 </html>

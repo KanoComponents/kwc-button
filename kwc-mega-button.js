@@ -1,8 +1,4 @@
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../kwc-style/kwc-style.html">
-<link rel="import" href="../kwc-icons/kwc-icons.html">
-
-<!--
+/**
 `kwc-mega-button`
 An mega button element with Kano styling
 
@@ -14,10 +10,20 @@ Custom property | Description | Default
 
 @group Kano Web Components
 @demo demo/kwc-mega-button.html
--->
+*/
+/*
+  FIXME(polymer-modulizer): the above comments were extracted
+  from HTML and may be out of place here. Review them and
+  then delete this comment!
+*/
+import '@polymer/polymer/polymer-legacy.js';
 
-<dom-module id="kwc-mega-button">
-  <template>
+import '@kano/kwc-style/kwc-style.js';
+import '@kano/kwc-icons/kwc-icons.js';
+import { Polymer } from '@polymer/polymer/lib/legacy/polymer-fn.js';
+import { html } from '@polymer/polymer/lib/utils/html-tag.js';
+Polymer({
+  _template: html`
     <style>
         /** Button default */
         :host{
@@ -86,41 +92,39 @@ Custom property | Description | Default
             border-color: var(--kwc-mega-button-disabled-border, var(--color-stone));
         }
     </style>
-    <button disabled$="[[disabled]]">
+    <button disabled\$="[[disabled]]">
         <template is="dom-if" if="[[_displayIcon]]">
             <iron-icon icon="[[iconId]]"></iron-icon>
         </template>
         <slot id="content"></slot>
     </button>
-  </template>
+`,
 
-  <script>
-    Polymer({
-      is: 'kwc-mega-button',
-      properties: {
-            /**
-             * Boolean to indicate whether the button is `active` or `disabled`
-             */
-            disabled: {
-                type: Boolean,
-                value: false,
-                reflectToAttribute: true
-            },
-            _displayIcon: {
-                type: Boolean,
-                computed: '_iconProvided(iconId)'
-            },
-            /**
-             * String to indicate which button (if any) the button
-             * should display
-             */
-            iconId: {
-                type: String
-            }
+  is: 'kwc-mega-button',
+
+  properties: {
+        /**
+         * Boolean to indicate whether the button is `active` or `disabled`
+         */
+        disabled: {
+            type: Boolean,
+            value: false,
+            reflectToAttribute: true
         },
-        _iconProvided (iconId) {
-            return iconId !== undefined && iconId !== null;
+        _displayIcon: {
+            type: Boolean,
+            computed: '_iconProvided(iconId)'
+        },
+        /**
+         * String to indicate which button (if any) the button
+         * should display
+         */
+        iconId: {
+            type: String
         }
-    });
-  </script>
-</dom-module>
+    },
+
+  _iconProvided (iconId) {
+      return iconId !== undefined && iconId !== null;
+  }
+});

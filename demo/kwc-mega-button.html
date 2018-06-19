@@ -4,11 +4,22 @@
         <title></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-        <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
-        <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
-        <link rel="import" href="../kwc-mega-button.html">
-        <custom-style>
+        <script src="../../../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+        <script type="module" src="../../../@polymer/iron-demo-helpers/demo-snippet.js"></script>
+        <script type="module" src="../../../@polymer/iron-demo-helpers/demo-pages-shared-styles.js"></script>
+        <script type="module" src="../kwc-mega-button.js"></script>
+        <!-- FIXME(polymer-modulizer):
+        These imperative modules that innerHTML your HTML are
+        a hacky way to be sure that any mixins in included style
+        modules are ready before any elements that reference them are
+        instantiated, otherwise the CSS @apply mixin polyfill won't be
+        able to expand the underlying CSS custom properties.
+        See: https://github.com/Polymer/polymer-modulizer/issues/154
+        -->
+    <script type="module">
+const $_documentContainer = document.createElement('template');
+
+$_documentContainer.innerHTML = `<custom-style>
             <style is="custom-style" include="demo-pages-shared-styles">
                 h2 {
                     padding-bottom: 20px;
@@ -32,10 +43,16 @@
                     --kwc-mega-button-disabled-border: red;
                 }
             </style>
-        </custom-style>
+        </custom-style>`;
+
+document.body.appendChild($_documentContainer.content);
+</script>
     </head>
     <body unresolved>
-        <div class="vertical-section-container centered">
+        <script type="module">
+const $_documentContainer = document.createElement('template');
+
+$_documentContainer.innerHTML = `<div class="vertical-section-container centered">
             <demo-snippet>
                 <template>
                     <h2>Without Icon (not an intended use case)</h2>
@@ -74,8 +91,7 @@
                         }
                     </style>
                     -->
-                    <kwc-mega-button class="action code"
-                                     icon-id="kwc-social-icons:code">
+                    <kwc-mega-button class="action code" icon-id="kwc-social-icons:code">
                         View Code
                     </kwc-mega-button>
                 </template>
@@ -83,8 +99,7 @@
             <demo-snippet>
                 <template>
                     <h2>Icon (custom color) Styled</h2>
-                    <kwc-mega-button class="action code styled"
-                                     icon-id="kwc-social-icons:code">
+                    <kwc-mega-button class="action code styled" icon-id="kwc-social-icons:code">
                         View Code
                     </kwc-mega-button>
                 </template>
@@ -92,7 +107,7 @@
             <demo-snippet>
                 <template>
                     <h2>Disabled</h2>
-                    <kwc-mega-button icon-id="kwc-social-icons:like" disabled>
+                    <kwc-mega-button icon-id="kwc-social-icons:like" disabled="">
                         Like
                     </kwc-mega-button>
                 </template>
@@ -100,11 +115,14 @@
             <demo-snippet>
                 <template>
                     <h2>Disabled Styled</h2>
-                    <kwc-mega-button class="styled" icon-id="kwc-social-icons:like" disabled>
+                    <kwc-mega-button class="styled" icon-id="kwc-social-icons:like" disabled="">
                         Like
                     </kwc-mega-button>
                 </template>
             </demo-snippet>
-        </div>
+        </div>`;
+
+document.body.appendChild($_documentContainer.content);
+</script>
     </body>
 </html>

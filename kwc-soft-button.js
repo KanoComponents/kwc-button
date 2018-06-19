@@ -1,8 +1,4 @@
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../kwc-style/kwc-style.html">
-<link rel="import" href="../kwc-icons/kwc-icons.html">
-
-<!--
+/**
 `kwc-soft-button`
 An atomic button element with Kano styling
 
@@ -12,10 +8,20 @@ Custom property | Description | Default
 
 @group Kano Web Components
 @demo demo/kwc-soft-button.html
--->
+*/
+/*
+  FIXME(polymer-modulizer): the above comments were extracted
+  from HTML and may be out of place here. Review them and
+  then delete this comment!
+*/
+import '@polymer/polymer/polymer-legacy.js';
 
-<dom-module id="kwc-soft-button">
-  <template>
+import '@kano/kwc-style/kwc-style.js';
+import '@kano/kwc-icons/kwc-icons.js';
+import { Polymer } from '@polymer/polymer/lib/legacy/polymer-fn.js';
+import { html } from '@polymer/polymer/lib/utils/html-tag.js';
+Polymer({
+  _template: html`
     <style>
         /** Button default */
         :host button {
@@ -74,65 +80,63 @@ Custom property | Description | Default
             color: var(--kwc-soft-button-icon, var(--color-kano-orange));
         }
         :host([disabled]) button {
-            /** TODO: Use colors from `kwc-style` */
+            /** TODO: Use colors from \`kwc-style\` */
             background-color: var(--kwc-soft-button-disabled-background, transparent);
             border-color: var(--kwc-soft-button-disabled-border, #d3d6d8);
             color: var(--kwc-soft-button-disabled-color, #a2a6aa);
         }
         :host([disabled]) button:hover {
-            /** TODO: Use colors from `kwc-style` */
+            /** TODO: Use colors from \`kwc-style\` */
             background-color: var(--kwc-soft-button-disabled-background-hover, transparent);
             border-color: var(--kwc-soft-button-disabled-border-hover, #d3d6d8);
             color: var(--kwc-soft-button-disabled-color-hover, #a2a6aa);
         }
     </style>
-    <button disabled$="[[disabled]]">
+    <button disabled\$="[[disabled]]">
         <template is="dom-if" if="[[_displayIcon]]">
             <iron-icon icon="[[iconId]]"></iron-icon>
         </template>
         <slot id="content"></slot>
     </button>
-  </template>
+`,
 
-  <script>
-    Polymer({
-      is: 'kwc-soft-button',
-      properties: {
-            /**
-             * Boolean to toggle whether the button is in use – eg. representing
-             * the currently selected page or item.
-             */
-            active: {
-                type: Boolean,
-                value: false,
-                reflectToAttribute: true
-            },
-            /** Boolean to indicate whether the button is `disabled` */
-            disabled: {
-                type: Boolean,
-                value: false,
-                reflectToAttribute: true
-            },
-            _displayIcon: {
-                type: Boolean,
-                computed: '_iconProvided(iconId)'
-            },
-            /**
-             * String to indicate which button (if any) the button
-             * should display.
-             */
-            iconId: {
-                type: String
-            }
+  is: 'kwc-soft-button',
+
+  properties: {
+        /**
+         * Boolean to toggle whether the button is in use – eg. representing
+         * the currently selected page or item.
+         */
+        active: {
+            type: Boolean,
+            value: false,
+            reflectToAttribute: true
+        },
+        /** Boolean to indicate whether the button is `disabled` */
+        disabled: {
+            type: Boolean,
+            value: false,
+            reflectToAttribute: true
+        },
+        _displayIcon: {
+            type: Boolean,
+            computed: '_iconProvided(iconId)'
         },
         /**
-         * Compute whether the icon has been provided.
-         * @param {String || null} iconId
-         * @returns {Boolean}
+         * String to indicate which button (if any) the button
+         * should display.
          */
-        _iconProvided (iconId) {
-            return iconId !== undefined && iconId !== null;
+        iconId: {
+            type: String
         }
-    });
-  </script>
-</dom-module>
+    },
+
+  /**
+   * Compute whether the icon has been provided.
+   * @param {String || null} iconId
+   * @returns {Boolean}
+   */
+  _iconProvided (iconId) {
+      return iconId !== undefined && iconId !== null;
+  }
+});

@@ -1,8 +1,4 @@
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../kwc-style/kwc-style.html">
-<link rel="import" href="../kwc-icons/kwc-icons.html">
-
-<!--
+/**
 `kwc-button`
 An atomic button element with Kano styling
 
@@ -12,10 +8,20 @@ Custom property | Description | Default
 
 @group Kano Web Components
 @demo demo/kwc-button.html
--->
+*/
+/*
+  FIXME(polymer-modulizer): the above comments were extracted
+  from HTML and may be out of place here. Review them and
+  then delete this comment!
+*/
+import '@polymer/polymer/polymer-legacy.js';
 
-<dom-module id="kwc-button">
-  <template>
+import '@kano/kwc-style/kwc-style.js';
+import '@kano/kwc-icons/kwc-icons.js';
+import { Polymer } from '@polymer/polymer/lib/legacy/polymer-fn.js';
+import { html } from '@polymer/polymer/lib/utils/html-tag.js';
+Polymer({
+  _template: html`
     <style>
         /** Button default */
         :host button {
@@ -331,104 +337,102 @@ Custom property | Description | Default
             width: 14px;
         }
     </style>
-    <button disabled$="[[disabled]]" type="[[type]]">
+    <button disabled\$="[[disabled]]" type="[[type]]">
         <template is="dom-if" if="[[_displayIcon]]">
             <iron-icon icon="[[iconId]]"></iron-icon>
         </template>
         <slot id="content"></slot>
     </button>
-  </template>
+`,
 
-  <script>
-    Polymer({
-      is: 'kwc-button',
-      properties: {
-            /**
-             * Boolean to indicate whether the button is `active` or `disabled`
-             */
-            disabled: {
-                type: Boolean,
-                value: false,
-                reflectToAttribute: true
-            },
-            _displayIcon: {
-                type: Boolean,
-                computed: '_iconProvided(iconId)'
-            },
-            /**
-             * Boolean to indicate whether the button
-             * is ghosted (semi-transparent)
-             */
-            ghost: {
-                type: Boolean,
-                value: false,
-                reflectToAttribute: true
-            },
-            /**
-             * String to indicate which button (if any) the button
-             * should display
-             */
-            iconId: {
-                type: String
-            },
-            /**
-             * Boolean to indicate whether the button should only have
-             * an outline
-             */
-            outline: {
-                type: Boolean,
-                value: false,
-                reflectToAttribute: true
-            },
-            /**
-             * Boolean to indicate whether the button should be square
-             */
-            size: {
-                type: String,
-                value: 'medium',
-                reflectToAttribute: true
-            },
-            /**
-             * Boolean to indicate whether the button should be square
-             */
-            square: {
-                type: Boolean,
-                value: false,
-                reflectToAttribute: true
-            },
-            /**
-             * Boolean to indicate whether the button should be
-             * completely transparent
-             */
-            transparent: {
-                type: Boolean,
-                value: false,
-                reflectToAttribute: true
-            },
-            type: {
-                type: String,
-                value: 'button'
-            },
-            /**
-             * String to indicate the role played by the button, and the styling
-             * it should use:
-             *    - `primary`
-             *    - `secondary`
-             *    - `tertiary`
-             *    - `warning`
-             *    - `white`
-             *
-             * Named `type` to avoid clashes with the HTML `role` attribute
-             */
-            variant: {
-                type: String,
-                value: 'primary',
-                reflectToAttribute: true
-            }
+  is: 'kwc-button',
+
+  properties: {
+        /**
+         * Boolean to indicate whether the button is `active` or `disabled`
+         */
+        disabled: {
+            type: Boolean,
+            value: false,
+            reflectToAttribute: true
         },
-        _iconProvided (iconId) {
-            return iconId !== undefined && iconId !== null;
+        _displayIcon: {
+            type: Boolean,
+            computed: '_iconProvided(iconId)'
+        },
+        /**
+         * Boolean to indicate whether the button
+         * is ghosted (semi-transparent)
+         */
+        ghost: {
+            type: Boolean,
+            value: false,
+            reflectToAttribute: true
+        },
+        /**
+         * String to indicate which button (if any) the button
+         * should display
+         */
+        iconId: {
+            type: String
+        },
+        /**
+         * Boolean to indicate whether the button should only have
+         * an outline
+         */
+        outline: {
+            type: Boolean,
+            value: false,
+            reflectToAttribute: true
+        },
+        /**
+         * Boolean to indicate whether the button should be square
+         */
+        size: {
+            type: String,
+            value: 'medium',
+            reflectToAttribute: true
+        },
+        /**
+         * Boolean to indicate whether the button should be square
+         */
+        square: {
+            type: Boolean,
+            value: false,
+            reflectToAttribute: true
+        },
+        /**
+         * Boolean to indicate whether the button should be
+         * completely transparent
+         */
+        transparent: {
+            type: Boolean,
+            value: false,
+            reflectToAttribute: true
+        },
+        type: {
+            type: String,
+            value: 'button'
+        },
+        /**
+         * String to indicate the role played by the button, and the styling
+         * it should use:
+         *    - `primary`
+         *    - `secondary`
+         *    - `tertiary`
+         *    - `warning`
+         *    - `white`
+         *
+         * Named `type` to avoid clashes with the HTML `role` attribute
+         */
+        variant: {
+            type: String,
+            value: 'primary',
+            reflectToAttribute: true
         }
-    });
-  </script>
-</dom-module>
+    },
+
+  _iconProvided (iconId) {
+      return iconId !== undefined && iconId !== null;
+  }
+});

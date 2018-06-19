@@ -6,10 +6,10 @@
 
     <title>kwc-mega-button test</title>
 
-    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-    <script src="../../web-component-tester/browser.js"></script>
+    <script src="../../../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+    <script src="../../../wct-browser-legacy/browser.js"></script>
 
-    <link rel="import" href="../kwc-mega-button.html">
+    <script type="module" src="../kwc-mega-button.js"></script>
   </head>
   <body>
     <test-fixture id="basic">
@@ -18,31 +18,32 @@
       </template>
     </test-fixture>
 
-    <script>
-        suite('Default kwc-mega-button', function() {
-            var element;
+    <script type="module">
+import '../kwc-mega-button.js';
+suite('Default kwc-mega-button', function() {
+    var element;
 
-             setup(function () {
-                element = fixture('basic');
-             });
+     setup(function () {
+        element = fixture('basic');
+     });
 
-            test('instantiating the element works', function() {
-                assert.equal(element.is, 'kwc-mega-button');
-            });
+    test('instantiating the element works', function() {
+        assert.equal(element.is, 'kwc-mega-button');
+    });
 
-            test('should be enabled by default', function() {
-                assert.equal(element.disabled, false);
-            });
+    test('should be enabled by default', function() {
+        assert.equal(element.disabled, false);
+    });
 
-            test('should not have an icon by default', function() {
-                assert.equal(element.iconId, undefined);
-            });
+    test('should not have an icon by default', function() {
+        assert.equal(element.iconId, undefined);
+    });
 
-            test('can be disabled imperatively', function() {
-                element.disabled = true;
-                expect(element.hasAttribute('disabled')).to.be.eql(true);
-            });
-        });
-    </script>
+    test('can be disabled imperatively', function() {
+        element.disabled = true;
+        expect(element.hasAttribute('disabled')).to.be.eql(true);
+    });
+});
+</script>
   </body>
 </html>
